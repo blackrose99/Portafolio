@@ -1,0 +1,45 @@
+.slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slider img {
+    max-width: 100px;
+    height: auto;
+    margin: 0 5px;
+    transition: transform 0.3s ease;
+}
+
+.slider img.active {
+    transform: scale(1.2);
+}
+
+.slider button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.slider button:hover {
+    color: #666;
+}
+
+.slider button:first-child {
+    left: 10px;
+}
+
+.slider button:last-child {
+    right: 10px;
+}
