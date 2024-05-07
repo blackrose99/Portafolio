@@ -5,7 +5,7 @@ const Calification = () => {
 
   return (
     <div className='m-5'>
-        <h1>Hola esta es una Calification</h1>
+        <h1>Hola esta es una Calification Estrellas</h1>
     </div>
 
   );
