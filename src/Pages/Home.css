@@ -51,7 +51,7 @@
   }
   .card_Habilidades {
     max-width: 300px; /* Tamaño máximo de las tarjetas */
-    height: 330px;
+    height: 300px;
     margin: 0 auto; /* Centra las tarjetas horizontalmente */
     border: 1px solid #ccc; /* Borde delgados alrededor de las tarjetas */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera debajo de las tarjetas */

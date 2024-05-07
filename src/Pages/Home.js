@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Home.css";
+import Calification from "../Components/Calification";
 // Importa las imágenes de habilidades blandas individualmente
 import imgAprendizajeRapido from "./img/h-blandas/activo-intangible.png";
 import imgComunicacionEfectiva from "./img/h-blandas/comunicacion-efectiva.png";
@@ -47,6 +48,7 @@ const LandingPage = () => {
           <button onClick={handlePrevImage}>&lt;</button>
           <button onClick={handleNextImage}>&gt;</button>
         </div>
+      
 
         <div className="container text-center ">
           <h2 className="m-3">Mis Habilidades Blandas</h2>
@@ -106,6 +108,7 @@ const LandingPage = () => {
               </div>
             </div>
           </div>
+          <Calification/>
         </div>
       </section>
     </div>
