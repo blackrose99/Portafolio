@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaGraduationCap, FaTasks, FaBriefcase, FaCertificate } from 'react-icons/fa'; // Importa los iconos de React Icons
 import './About.css'; // Importa el archivo de estilos de About
-import imgTitulo from "./img/about/gorra-de-posgrado.png";
+import imgTituloPregrado from "./img/about/gorra-de-posgrado.png";
 import imgSenalogo from "./img/about/sena.png";
 import imgCandelariaLogo from "./img/about/colegioNuestraseñoradelacandelaria.png";
 import imgUtsLogo from "./img/about/Logo_de_las_Unidades_Tecnológicas_de_Santander.svg.png";
