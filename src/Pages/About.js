@@ -42,7 +42,7 @@ function About() {
           </div>
         </div>
       </div>
-
+<div className='mt-3 mb-3'>
       <h2>Educación</h2>
       <div className="row">
         <div className="col-md-3">
@@ -97,7 +97,8 @@ function About() {
           </div>
         </div>
       </div>
-
+      </div> 
+<div className='m-4'>
       <h2>Experiencia</h2>
       <div className="card">
         <div className="card-body">
@@ -105,6 +106,7 @@ function About() {
           <p>Sistema de Evaluación de Stands de Eventos</p>
           <p>Descripción: Aplicativo web con PHP y el framework Laravel para gestionar stands en eventos...</p>
         </div>
+      </div>
       </div>
     </div>
   );

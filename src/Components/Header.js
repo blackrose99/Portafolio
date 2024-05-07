@@ -24,7 +24,7 @@ function Header() {
         </div>
         <nav className="nav-menu">
           <ul className="nav-links">
-            <li><Link to="/"><FontAwesomeIcon icon={faHome} style={{ color: '#f40606e8', marginRight: '0.5em', width:'40px' }} /> Home</Link></li>
+            <li className=''><Link to="/"><FontAwesomeIcon icon={faHome} style={{ color: '#f40606e8', marginRight: '0.5em', width:'40px' }} /> Home</Link></li>
             <li><Link to="/about"><FontAwesomeIcon icon={faUser} style={{ color: '#f40606e8', marginRight: '0.5em', width:'40px' }} /> Sobre Mí</Link></li>
             <li><Link to="/projects"><FontAwesomeIcon icon={faCode} style={{ color: '#f40606e8', marginRight: '0.5em', width:'40px' }} /> Mis Proyectos</Link></li>
             <li><Link to="/contact"><FontAwesomeIcon icon={faEnvelope} style={{ color: '#f40606e8', marginRight: '0.5em' , width:'40px'}} /> Contactame</Link></li>

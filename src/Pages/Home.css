@@ -43,6 +43,7 @@
 .slider button:last-child {
     right: 10px;
 }
+
 .card-img-top {
     max-width: 150px; /* Define el tamaño máximo de las imágenes */
     height: auto; /* Permite que la altura se ajuste automáticamente */
@@ -58,8 +59,13 @@
     transition: box-shadow 0.3s ease; /* Transición suave para el efecto de sombra */
   }
   
+  .card_Habilidades:hover {
+    transform: scale(1.02); /* Escala la tarjeta al 105% cuando el mouse está sobre ella */
+
+  }
+  
   .card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Efecto de sombra más pronunciado al pasar el mouse */
+    box-shadow: 0 8px 16px rgba(52, 248, 3, 0.949); /* Efecto de sombra más pronunciado al pasar el mouse */
   }
   
   .car  d-img-top {
