@@ -3,14 +3,16 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { faHome, faUser, faCode, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import './Header.css';
 import fotoPerfil from "./img/foto.jpg";
 
 function Header() {
-  const [menuOpen, setMenuOpen] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+    // Toggle the 'shifted' class on the body or the main container
+    document.body.classList.toggle('shifted');
+    // or document.querySelector('.container').classList.toggle('shifted');
   };
 
   return (
@@ -31,9 +33,6 @@ function Header() {
         <button className="toggle-btn" onClick={toggleMenu}>
           <FontAwesomeIcon icon={menuOpen ? faAngleLeft : faBars} style={{ color: '#f40606e8' }} />
         </button>
-      </div>
-      <div className={`content ${menuOpen ? 'shifted' : ''}`}>
-        {/* Aquí colocarías el contenido de tu aplicación */}
       </div>
     </div>
   );

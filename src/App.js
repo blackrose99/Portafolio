@@ -1,27 +1,29 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
-// Importa tus componentes
 import Header from './Components/Header';
+import Footer from './Components/Footer';
 import Home from './Pages/Home';
-import Footer from './Components/Footer'; 
 import About from './Pages/About';
-import Contact from "./Pages/Contact";
-import Projecs from "./Pages/Projects";
+import Contact from './Pages/Contact';
+import Projects from './Pages/Projects';
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
-    <div className="">
+    <div className={`App ${menuOpen ? 'shifted' : ''}`}>
       <BrowserRouter>
-        <Header />
-        <div className=''>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/contact' element={<Contact />} />
-            <Route path='/projects' element={<Projecs />} />
-          </Routes>
-        </div>
+        <Header menuOpen={menuOpen} toggleMenu={toggleMenu} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/projects" element={<Projects />} />
+        </Routes>
       </BrowserRouter>
       <Footer />
     </div>
