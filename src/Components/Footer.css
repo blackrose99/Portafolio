@@ -27,4 +27,20 @@
     color: #007bff;
   }
   
+.btnAnimacion.downloading {
+  /* Estilos para la animación de "cargando" */
+  background-color: #007bff; 
+  color: #fff; 
+  cursor: progress; 
+  pointer-events: none; 
+}
+
+/* Estilos para el botón en estado de "descarga completa" */
+.btnAnimacion.complete {
+  background-color: green; 
+  color: #fff;
+}
+
+  
+  
  

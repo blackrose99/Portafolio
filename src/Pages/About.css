@@ -1,38 +1,18 @@
-/* About.css */
-.about-container {
-    margin-top: 50px;
-  }
+.card_estudios {
+  height: 430px; /* Define la altura deseada para las tarjetas */
+  transition: transform 0.3s ease; /* Agrega una transición de 0.3 segundos al transformar la tarjeta */
+}
+
+.card_estudios:hover {
+  transform: scale(1.02); /* Escala la tarjeta al 105% cuando el mouse está sobre ella */
+}
+
+.img-about-estudios{
+  max-width: 250px; /* Define el tamaño máximo de las imágenes */
+    height: 150px; /* Permite que la altura se ajuste automáticamente */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+    display: block; /* Asegura que la imagen se comporte como un bloque */
+}
   
-  .card {
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    margin-bottom: 20px;
-  }
+
   
-  .card-body {
-    padding: 20px;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .certificate {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
-  
-  .certificate img {
-    width: 45%;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    margin-bottom: 20px;
-  }
-  
-  body{
-    background-color: black;
-  }

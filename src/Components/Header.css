@@ -1,72 +1,72 @@
+
+
 .sidebar {
-    background-color: #333;
-    color: #fff;
-    width: 260px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: -260px;
-    padding-top: 20px;
-    transition: left 0.3s ease;
-  }
-  
-  .sidebar.open {
-    left: 0;
-  }
-  
-  .profile {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  .profile-picture {
-    width: 180px;
-    height: 210px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-  }
-  
-  .profile-name {
-    font-size: 28px;
-  }
-  
-  .nav-menu {
-    padding-left: 20px;
-  }
-  
-  .nav-links {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .nav-links li {
-    margin-bottom: 15px;
-  }
-  
-  .nav-links a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .nav-links a:hover {
-    text-decoration: underline;
-  }
-  
-  .toggle-btn {
-    position: absolute;
-    top: 10px;
-    right: -40px;
-    background: none;
-    border: none;
-    color: #e60b0b;
-    font-size: 24px;
-    cursor: pointer;
-    transition: right 0.3s ease;
-  }
-  
-  .toggle-btn:hover {
-    right: -45px;
-  }
-  body {
-    color: #fff;
-  }
+  background-color: #333;
+  color: #fff;
+  width: 260px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: -260px;
+  padding-top: 20px;
+  transition: left 0.3s ease; /* Transición para el menú lateral */
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profile-picture {
+  width: 180px;
+  height: 210px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.profile-name {
+  font-size: 28px;
+}
+
+.nav-menu {
+  padding-left: 30px;
+}
+
+.nav-links {
+  list-style-type: none;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-bottom: 15px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 10px;
+  right: -40px;
+  background: none;
+  border: none;
+  color: #e60b0b;
+  font-size: 24px;
+  cursor: pointer;
+  transition: right 0.3s ease; /* Transición para el botón de alternancia */
+}
+
+.toggle-btn:hover {
+  right: -45px;
+}
+
