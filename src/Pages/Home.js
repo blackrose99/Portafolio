@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Home.css";
 import Calification from "../Components/Calification";
+import Coments from "../Components/Coments";
 // Importa las imágenes de habilidades blandas individualmente
 import imgAprendizajeRapido from "./img/h-blandas/activo-intangible.png";
 import imgComunicacionEfectiva from "./img/h-blandas/comunicacion-efectiva.png";
@@ -109,6 +110,7 @@ const LandingPage = () => {
             </div>
           </div>
           <Calification/>
+          <Coments/>
         </div>
       </section>
     </div>
