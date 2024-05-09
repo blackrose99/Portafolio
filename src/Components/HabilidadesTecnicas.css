@@ -1,0 +1,65 @@
+.habilidad-card {
+    width: 110px; /* Ajusta el ancho según sea necesario */
+    height: 110px; /* Ajusta la altura según sea necesario */
+    background: #000000;
+    border-radius: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 14px 26px rgb(3, 162, 247);
+    transition: all 0.3s ease-out;
+    text-decoration: none;
+    margin-bottom: 30px;
+  }
+  
+  .habilidad-card:hover {
+    transform: translateY(-5px) scale(1.005) translateZ(0);
+    box-shadow: 0 14px 26px rgb(44, 247, 3);
+  }
+  
+
+  
+  .habilidad-circle {
+    width: 100%; /* Ajusta el ancho según sea necesario */
+    height: auto; /* Ajusta la altura según sea necesario */
+    border-radius: 100%;
+    background: #000000;
+    border: 2px solid var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all 0.3s ease-out;
+  }
+  
+  .habilidad-circle:after {
+    content: "";
+    width: 86px; /* Ajusta el ancho según sea necesario */
+    height: 86px; /* Ajusta la altura según sea necesario */
+    display: block;
+    position: absolute;
+    background: var(--bg-color);
+    border-radius: 50%;
+    top: 7px;
+    left: 7px;
+    transition: opacity 0.3s ease-out;
+  }
+  
+  .habilidad-circle img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+
+  .row {
+    display: flex;
+    flex-wrap: nowrap; /* Evita que las imágenes se envuelvan a una nueva línea */
+    overflow-x: hidden; /* Oculta las imágenes que se desbordan del contenedor */
+}
+
+.crecer_imagen:hover {
+    transform: scale(1.1); /* Escala la tarjeta al 140% cuando el mouse está sobre ella */
+}

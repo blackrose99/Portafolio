@@ -1,48 +1,3 @@
-.slider-container {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-}
-
-.slider {
-    display: flex;
-    transition: transform 0.5s ease;
-}
-
-.slider img {
-    max-width: 100px;
-    height: auto;
-    margin: 0 5px;
-    transition: transform 0.3s ease;
-}
-
-.slider img.active {
-    transform: scale(1.2);
-}
-
-.slider button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: #333;
-    transition: color 0.3s ease;
-}
-
-.slider button:hover {
-    color: #666;
-}
-
-.slider button:first-child {
-    left: 10px;
-}
-
-.slider button:last-child {
-    right: 10px;
-}
 
 .card-img-top {
     max-width: 150px; /* Define el tamaño máximo de las imágenes */
@@ -50,17 +5,16 @@
     margin: 0 auto; /* Centra la imagen horizontalmente */
     display: block; /* Asegura que la imagen se comporte como un bloque */
   }
-  .card_Habilidades {
-    max-width: 300px; /* Tamaño máximo de las tarjetas */
-    height: 300px;
-    margin: 0 auto; /* Centra las tarjetas horizontalmente */
+  .card_Habilidades_blandas {
+    max-width: 230px; /* Tamaño máximo de las tarjetas */
+    height: 250px;
     border: 1px solid #ccc; /* Borde delgados alrededor de las tarjetas */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera debajo de las tarjetas */
     transition: box-shadow 0.3s ease; /* Transición suave para el efecto de sombra */
   }
   
-  .card_Habilidades:hover {
-    transform: scale(1.02); /* Escala la tarjeta al 105% cuando el mouse está sobre ella */
+  .card_Habilidades_blandas:hover {
+    transform: scale(1.03); /* Escala la tarjeta al 105% cuando el mouse está sobre ella */
 
   }
   
@@ -78,3 +32,27 @@
   }
   
   
+/* Estilo maquina de escribir */
+#typed-text {
+  overflow: hidden;
+  border-right: .15em solid rgb(0, 195, 255);
+  white-space: nowrap;
+  margin: 0 auto;
+  font-size: 18px;
+  color: #ffffff;
+  animation: typing 11s steps(60) infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.bienvenida_titulo {
+  color: rgb(0, 132, 255);
+  margin-bottom: 20px;
+}
