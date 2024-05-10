@@ -8,13 +8,6 @@ body.shifted {
   margin-left: 260px; /* Width of the sidebar */
 }
 
-.container {
-  transition: margin-left 0.3s ease;
-}
-
-.container.shifted {
-  margin-left: 260px;
-}
 
 .App.shifted {
   overflow-x: hidden;

@@ -172,7 +172,7 @@ const HabilidadesTecnicas = () => {
 return (
     <div className="habilidades-tecnicas-container">
         <h2 className='text-center m-3 mt-5 mb-4'>Mis Habilidades Técnicas</h2>
-        <div className="row">
+        <div className="fila_logos row">
             {habilidades.map((habilidad, index) => (
                 <div key={index} className={`habilidad-card ${habilidad.categoria.toLowerCase().replace(/\s/g, '-')}`} style={{ transform: `translateX(${100 * (index - currentIndex)}%)` }}>
                     <div className="habilidad-overlay"></div>

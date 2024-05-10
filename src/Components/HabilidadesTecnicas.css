@@ -1,6 +1,6 @@
 .habilidad-card {
-    width: 110px; /* Ajusta el ancho según sea necesario */
-    height: 110px; /* Ajusta la altura según sea necesario */
+    width: 120px; /* Ajusta el ancho según sea necesario */
+    height: 120px; /* Ajusta la altura según sea necesario */
     background: #000000;
     border-radius: 100%;
     overflow: hidden;
@@ -54,10 +54,11 @@
   }
   
 
-  .row {
+  .fila_logos {
     display: flex;
     flex-wrap: nowrap; /* Evita que las imágenes se envuelvan a una nueva línea */
     overflow-x: hidden; /* Oculta las imágenes que se desbordan del contenedor */
+
 }
 
 .crecer_imagen:hover {
