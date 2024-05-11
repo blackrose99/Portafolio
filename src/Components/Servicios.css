@@ -1,0 +1,13 @@
+.servicios {
+    margin-top: 50px;
+}
+
+.servicio-card {
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .servicio-card {
+        margin-bottom: 30px;
+    }
+}

@@ -34,12 +34,12 @@
 /*________________________________________________*/
 
 .title_my {
-  font-size: 55px;
+  font-size: 52px;
   /* Ajusta el tamaño del título "My" */
 }
 
 .logo-text {
-  font-size: 30px;
+  font-size: 28px;
   /* Ajusta el tamaño del texto "Portafolio" */
 }
 
@@ -133,7 +133,7 @@
 }
 
 .card_footerP:hover .logo {
-  width: 220px;
+  width: 260px;
   animation: opacity 1s ease-in-out;
 }
 

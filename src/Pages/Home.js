@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css";
-import Calification from "../Components/Calification";
-import Coments from "../Components/Coments";
 import HabilidadesTecnicas from "../Components/HabilidadesTecnicas";
 import HabilidadesBlandas from "../Components/HabilidadesBlandas";
+import Servicios from "../Components/Services";
+import Clientes from "../Components/Clientes";
 
 const LandingPage = () => {
   const [typedText, setTypedText] = useState("");
@@ -24,14 +24,14 @@ const LandingPage = () => {
       <div className="m-3">
         <HabilidadesTecnicas />
       </div>
-      <div className="mt-5">
+      <div className="mt-5 mb-5">
         <HabilidadesBlandas />
       </div>
-      <div className="">
-        <Calification />
+      <div>
+        <Servicios />
       </div>
-      <div className="">
-        <Coments />
+      <div className="mt-5 mb-5">
+        <Clientes/>
       </div>
     </div>
   );

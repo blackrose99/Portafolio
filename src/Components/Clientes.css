@@ -1,0 +1,13 @@
+.clientes {
+    margin-top: 50px;
+}
+
+.cliente-card {
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .cliente-card {
+        margin-bottom: 30px;
+    }
+}
