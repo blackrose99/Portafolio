@@ -42,7 +42,7 @@ body.shifted {
 }
 
 .profile-name {
-  font-size: 28px;
+  font-size: 25px;
 }
 
 .nav-menu {
@@ -55,7 +55,7 @@ body.shifted {
 }
 
 .nav-links li {
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 .nav-links a {
@@ -69,7 +69,7 @@ body.shifted {
   right: -40px;
   background: none;
   border: none;
-  color: #e60b0b;
+  color: #0b58e6;
   font-size: 24px;
   cursor: pointer;
   transition: right 0.3s ease; /* Transition for toggle button */
@@ -78,3 +78,4 @@ body.shifted {
 .toggle-btn:hover {
   right: -45px;
 }
+

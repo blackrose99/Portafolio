@@ -1,0 +1,22 @@
+.card_Habilidades_blandas {
+    max-width: 230px; /* Tamaño máximo de las tarjetas */
+    height: 230px;
+    border: 1px solid #ccc; /* Borde delgados alrededor de las tarjetas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera debajo de las tarjetas */
+    transition: box-shadow 0.3s ease; /* Transición suave para el efecto de sombra */
+  }
+  
+  .card-img-top {
+    max-width: 150px; /* Define el tamaño máximo de las imágenes */
+    height: auto; /* Permite que la altura se ajuste automáticamente */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+    display: block; /* Asegura que la imagen se comporte como un bloque */
+    padding: 10px;
+  }
+  
+
+  .card_Habilidades_blandas:hover {
+    transform: scale(1.03); /* Escala la tarjeta al 105% cuando el mouse está sobre ella */
+
+  }
+  

@@ -30,7 +30,6 @@
   align-items: center; /* Centra verticalmente */
   gap: 1rem;
   box-shadow: 0 8px 16px rgb(3, 166, 248); /* Efecto de sombra más pronunciado al pasar el mouse */
-
   transform: rotate(-11deg); /* Rotación inicial */
 }
 
@@ -125,9 +124,6 @@
 }
 
 
-
-
-
 /* Animación de rotación */
 @keyframes rotateCard {
   0% {
@@ -141,6 +137,8 @@
 .about-item {
   animation: rotateCard 0.5s 0.5s forwards; /* Animación de rotación después de 0.5 segundos */
 }
+
+
 
 /*Tarjeta Sobre Mi_____________________________________-*/
 
@@ -220,48 +218,3 @@
 
 
 /*Educacion______________________________________________________________________-*/
-
-.card {
-  margin-bottom: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 250px; /* Definimos un ancho fijo para todas las tarjetas */
-  height: 450px;
-}
-
-.card img {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  margin: 20px auto 0; /* Alineamos la imagen al centro y agregamos un margen superior */
-  display: block;
-}
-
-.card-body {
-  text-align: center;
-  padding: 20px; /* Agregamos relleno al cuerpo de la tarjeta */
-}
-
-.card-title {
-  font-size: 1.2rem;
-  margin-bottom: 5px;
-}
-
-.card-title,
-h5,
-p {
-  color: #333;
-}
-
-.btn {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 15px;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background-color: #0056b3;
-}

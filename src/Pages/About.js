@@ -18,7 +18,7 @@ function About() {
               <div className='row'>
                 <h3 className="">Developer</h3>
               </div>
-              <button class="download-button mt-4">
+              <button class="download-button mt-3">
                 <div class="docs">
                   <svg
                     viewBox="0 0 24 24"
