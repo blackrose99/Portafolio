@@ -35,10 +35,15 @@ const Footer = () => {
             <h4>Información de Contacto</h4>
             <ul className="list-unstyled">
               <li className="btnFooter">Linkedin: <a href="https://www.linkedin.com/in/luis-manuel-casta%C3%B1o-grueso-167881197/" target="_blank" rel="noopener noreferrer">Luis Manuel Castaño Grueso</a></li>
+              <br/>
               <li className="btnFooter">Mail: <a href="mailto:mannuelcast321@gmail.com" target="_blank" rel="noopener noreferrer">mannuelcast321@gmail.com</a></li>
+              <br/>
               <li className="btnFooter">Whatsapp: <a href="https://wa.me/3168142027" target="_blank" rel="noopener noreferrer">+573168142027</a></li>
-              <li className="btnFooter">GitHub: <a href="https://github.com/blackrose99" target="_blank" rel="noopener noreferrer">Blackrose99</a></li>
+              <br/>
               <li className="btnFooter">Dockerhub: <a href="https://hub.docker.com/u/lmcastano" target="_blank" rel="noopener noreferrer">lmcastano</a></li>
+
+              <br/>
+              <li className="btnFooter">GitHub: <a href="https://github.com/blackrose99" target="_blank" rel="noopener noreferrer">Blackrose99</a></li>
             </ul>
           </div>
           {/* Tercera columna: Enlaces y redes sociales */}
