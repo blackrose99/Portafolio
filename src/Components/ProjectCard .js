@@ -11,7 +11,7 @@ const ProjectCard = ({ title, tools, description, screenshots, githubLink }) => 
             <div className="carousel-inner">
               {screenshots.map((screenshot, index) => (
                 <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={index}>
-                  <img src={screenshot} className="d-block w-100" alt={`Screenshot ${index + 1}`} />
+                  <img src={screenshot} className="d-block w-100" style={{ maxHeight: '400px' }} alt={`Screenshot ${index + 1}`} />
                 </div>
               ))}
             </div>

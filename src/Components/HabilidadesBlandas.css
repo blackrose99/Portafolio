@@ -4,9 +4,13 @@
     border: 1px solid #ccc; /* Borde delgados alrededor de las tarjetas */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera debajo de las tarjetas */
     transition: box-shadow 0.3s ease; /* Transición suave para el efecto de sombra */
+    background-color: #168ce654;
+    box-shadow: 0 8px 16px rgb(3, 109, 248);
+    color: white;
+
   }
   
-  .card-img-top {
+  .card-img-top { 
     max-width: 150px; /* Define el tamaño máximo de las imágenes */
     height: auto; /* Permite que la altura se ajuste automáticamente */
     margin: 0 auto; /* Centra la imagen horizontalmente */
@@ -17,6 +21,8 @@
 
   .card_Habilidades_blandas:hover {
     transform: scale(1.03); /* Escala la tarjeta al 105% cuando el mouse está sobre ella */
+    box-shadow: 0 8px 16px rgba(3, 248, 224, 0.889);
+
 
   }
   

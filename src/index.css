@@ -1,32 +1,42 @@
 body {
   color: #f9f9f9;
-  background-color: black;
-  transition: margin-left 0.3s ease; /* Apply transition to the body */
+  background-color: rgb(17, 8, 55);
+  transition: margin-left 0.3s ease;
+  margin-left: 80px; /* Ajuste para el ancho del sidebar cuando está cerrado */
 }
 
 body.shifted {
-  margin-left: 260px; /* Width of the sidebar */
+  margin-left: 260px; /* Ajuste para el ancho del sidebar cuando está abierto */
 }
 
-
-.App.shifted {
-  overflow-x: hidden;
+.container {
+  position: relative;
+  z-index: 1; /* Asegura que el contenido principal esté detrás del menú */
 }
 
 .sidebar {
-  background-color: #4a546c;
+  background-color: #202632;
   color: #fff;
   width: 260px;
   height: 100vh;
   position: fixed;
   top: 0;
-  left: -260px; /* Initial position off-screen */
+  left: -180px; /* Mostrar 80px cuando está cerrado */
   padding-top: 20px;
-  transition: left 0.3s ease; /* Transition for sidebar movement */
+  transition: left 0.3s ease, width 0.3s ease;
+  z-index: 1000; /* Asegura que el sidebar esté por encima de todo */
 }
 
 .sidebar.open {
-  left: 0; /* Move the sidebar to the left (visible) */
+  left: 0;
+}
+
+.sidebar.closed {
+  width: 80px; /* Ancho del sidebar cuando está cerrado */
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra los iconos horizontalmente */
 }
 
 .profile {
@@ -46,21 +56,75 @@ body.shifted {
 }
 
 .nav-menu {
-  padding-left: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el contenido horizontalmente */
 }
 
 .nav-links {
   list-style-type: none;
   padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra los iconos horizontalmente */
 }
 
 .nav-links li {
-  margin-bottom: 30px;
+  margin-bottom: 20px; /* Separación entre iconos */
+  display: flex;
+  justify-content: center; /* Centra los iconos verticalmente */
 }
 
-.nav-links a {
+.nav-link {
+  display: flex;
+  align-items: center;
   color: #fff;
   text-decoration: none;
+  position: relative;
+  flex-direction: column; /* Coloca el icono y el texto en columna */
+}
+
+.nav-icon {
+  font-size: 40px; /* Tamaño más grande para los iconos */
+  margin-bottom: 5px;
+}
+.nav-icon:hover {
+  color: #0391f6;
+  background-color: #202632;
+  box-shadow: 0 14px 26px rgb(3, 133, 247);
+
+}
+.nav-text {
+  display: none;
+  font-size: 18px;
+}
+
+.sidebar.open .nav-text {
+  display: inline;
+}
+
+.sidebar.closed .nav-link {
+  justify-content: center;
+  flex-direction: column; /* Iconos en columna cuando está cerrado */
+  margin: 10px 0; /* Separación entre iconos */
+}
+
+.sidebar.closed .nav-icon {
+  font-size: 40px; /* Tamaño del icono cuando el sidebar está cerrado */
+}
+
+.sidebar.closed .nav-link:hover .nav-text {
+  display: block;
+  position: absolute;
+  left: 90px; /* Ajusta la posición del texto al pasar el mouse */
+  background: #202632;
+  padding: 5px 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  z-index: 100; /* Asegura que el texto esté sobre el contenido de la página */
 }
 
 .toggle-btn {
@@ -72,10 +136,18 @@ body.shifted {
   color: #0b58e6;
   font-size: 24px;
   cursor: pointer;
-  transition: right 0.3s ease; /* Transition for toggle button */
+  transition: right 0.3s ease;
+  z-index: 1001; /* Asegura que el botón esté sobre el sidebar */
 }
 
 .toggle-btn:hover {
   right: -45px;
 }
+.nav-links li.active .nav-icon {
+  color: #0391f6;
+}
 
+.nav-links li .nav-icon:hover {
+  color: #0391f6;
+  box-shadow: 0 14px 26px rgb(3, 133, 247);
+}

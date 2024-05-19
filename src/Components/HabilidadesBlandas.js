@@ -63,6 +63,7 @@ const HabilidadesBlandas = () => {
             </div>
           </div>
         </div>
+        
       </div>
     </div>
   );

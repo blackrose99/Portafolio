@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUser, faProjectDiagram, faEnvelope, faBars, faAngleLeft } from '@fortawesome/free-solid-svg-icons'; // Importa los iconos que necesites
+import { faHome, faUser, faProjectDiagram, faEnvelope, faBars, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import fotoPerfil from "./img/foto.jpg";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [selectedMenu, setSelectedMenu] = useState('/');
+  const location = useLocation();
+
+  useEffect(() => {
+    setSelectedMenu(location.pathname);
+  }, [location]);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
-    document.body.classList.toggle('shifted');
+    document.body.classList.toggle('shifted', !menuOpen);
   };
 
   return (
@@ -18,16 +24,18 @@ function Header() {
         <button className="toggle-btn" onClick={toggleMenu}>
           <FontAwesomeIcon icon={menuOpen ? faAngleLeft : faBars} style={{ color: '#f40606e8' }} />
         </button>
-        <div className="profile">
-          <img src={fotoPerfil} alt="Foto de perfil" className="profile-picture" />
-          <h2 className="profile-name">Manuel Castaño</h2>
-        </div>
+        {menuOpen && (
+          <div className="profile">
+            <img src={fotoPerfil} alt="Foto de perfil" className="profile-picture" />
+            <h2 className="profile-name">Manuel Castaño</h2>
+          </div>
+        )}
         <nav className="nav-menu">
           <ul className="nav-links">
-              <li><Link to="/"><FontAwesomeIcon icon={faHome} /> Inicio</Link></li>
-              <li><Link to="/about"><FontAwesomeIcon icon={faUser} /> Sobre mi</Link></li>
-              <li><Link to="/projects"><FontAwesomeIcon icon={faProjectDiagram} /> Proyectos</Link></li>
-              <li><Link to="/contact"><FontAwesomeIcon icon={faEnvelope} /> Contacto</Link></li>
+            <li className={selectedMenu === '/' ? 'active' : ''}><Link to="/" className="nav-link"><FontAwesomeIcon icon={faHome} className="nav-icon" /><span className="nav-text">Inicio</span></Link></li>
+            <li className={selectedMenu === '/about' ? 'active' : ''}><Link to="/about" className="nav-link"><FontAwesomeIcon icon={faUser} className="nav-icon" /><span className="nav-text">Sobre mi</span></Link></li>
+            <li className={selectedMenu === '/projects' ? 'active' : ''}><Link to="/projects" className="nav-link"><FontAwesomeIcon icon={faProjectDiagram} className="nav-icon" /><span className="nav-text">Proyectos</span></Link></li>
+            <li className={selectedMenu === '/contact' ? 'active' : ''}><Link to="/contact" className="nav-link"><FontAwesomeIcon icon={faEnvelope} className="nav-icon" /><span className="nav-text">Contacto</span></Link></li>
           </ul>
         </nav>
       </div>
