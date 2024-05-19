@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Footer.css'; // Importa el archivo de estilos del footer
 import { faFacebook, faInstagram, faDiscord, faGithub, faLinkedin, faWhatsapp, faGoogle, faReddit, faTelegram, faXing } from '@fortawesome/free-brands-svg-icons';
-import { faHome, faUser, faProjectDiagram, faEnvelope, faEnvelopeOpenText } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUser, faProjectDiagram, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import imgMy from "./img/my.png";
 const Footer = () => {
   return (
     <footer className="footer bg-dark text-light">
@@ -68,11 +67,6 @@ const Footer = () => {
               <li>
                 <a href="/contact" className="btnFooter ">
                   <FontAwesomeIcon icon={faEnvelope} /> Contacto
-                </a>
-              </li>
-              <li>
-                <a href="/foro" className="btnFooter">
-                  <FontAwesomeIcon icon={faEnvelopeOpenText} /> Foro
                 </a>
               </li>
             </ul>

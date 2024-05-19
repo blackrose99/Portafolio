@@ -1,6 +1,5 @@
 import React from 'react';
 import './About.css'; // Importa el archivo de estilos de About
-import imgTituloPregrado from "./img/about/gorra-de-posgrado.png";
 import imgSenalogo from "./img/about/sena.png";
 import imgCandelariaLogo from "./img/about/colegioNuestraseñoradelacandelaria.png";
 import imgUtsLogo from "./img/about/uts.png";
@@ -79,7 +78,8 @@ function About() {
             <div className="card-body">
               <h4 className="card-title">Información Personal</h4>
               <ul>
-                <li>Tengo 22 años</li>
+                <li>Developer Jr</li>
+                <li>22 Años</li>
                 <li>Bucaramanga, Santander Colombia</li>
                 <li>CC: 1099543721</li>
               </ul>
@@ -87,15 +87,15 @@ function About() {
           </div>
         </div>
       </div>
-
+      
       <div className='mt-5 mb-3'>
   <h2 className='text-center mb-4'>Educación</h2>
   <div className="row">
   <div className="col-md-3">
-      <div className="card">
+      <div className="card_studios">
         <img src={imgCandelariaLogo} className="img-about-estudios " alt="" />
         <div className="card-body">
-          <h4 className="card-title">Colegio Nuestra Señora De La Candelaria</h4>
+          <h4 className="card-title-studio">Colegio Nuestra Señora De La Candelaria</h4>
           <h5>CIMITARRA SANTANDER</h5>
           <p>2018</p>
           <p>Bachiller</p>
@@ -104,10 +104,10 @@ function About() {
       </div>
     </div>
   <div className="col-md-3">
-      <div className="card">
+      <div className="card_studios">
         <img src={imgSenalogo} className="img-about-estudios" alt="" />
         <div className="card-body">
-          <h4 className="card-title">Servicio Nacional de Aprendizaje SENA</h4>
+          <h4 className="card-title-studio">Servicio Nacional de Aprendizaje SENA</h4>
           <h5 className='m-4'>CIMITARRA SANTANDER</h5>
           <p>2017-2018</p>
           <p>Técnico en Sistemas</p>
@@ -117,9 +117,9 @@ function About() {
     </div>
 
     <div className="col-md-3">
-      <div className="card">
+      <div className="card_studios">
         <img src={imgUtsLogo} className="img-about-estudios" alt="" />
-        <div className="card-body">
+        <div className="card-body-studio">
           <h4 className="card-title">UNIDADES TECNOLÓGICAS DE SANTANDER</h4>
           <h5>BUCARAMANGA SANTANDER</h5>
           <p>2021-2023</p>
@@ -129,9 +129,9 @@ function About() {
       </div>
     </div>
     <div className="col-md-3">
-      <div className="card">
+      <div className="card_studios">
         <img src={imgUtsLogo} className="img-about-estudios" alt="" />
-        <div className="card-body">
+        <div className="card-body-studio">
           <h4 className="card-title">UNIDADES TECNOLÓGICAS DE SANTANDER</h4>
           <h5>BUCARAMANGA SANTANDER</h5>
           <p>En Formacion...</p>
@@ -143,8 +143,6 @@ function About() {
 
   </div>
 </div>
-
-
 
       <div className='m-4'>
         <h2>Experiencia</h2>

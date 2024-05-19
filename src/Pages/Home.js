@@ -27,7 +27,7 @@ const LandingPage = () => {
       <div className="mt-5 mb-5">
         <HabilidadesBlandas />
       </div>
-      <div>
+      <div className="">
         <Servicios />
       </div>
       <div className="mt-5 mb-5">

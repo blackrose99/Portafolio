@@ -23,7 +23,7 @@
   border: 4px solid #f1f5f7;
   overflow: hidden;
   border-radius: 20px;
-  background :linear-gradient(135deg, #1704e4, #1b8bed);
+  background: linear-gradient(135deg, #1a05fdb3, #1045b886);
   padding: 1.25rem;
   display: flex;
   justify-content: space-between; /* Coloca los elementos a los extremos */
@@ -34,7 +34,7 @@
 }
 
 .about-item:hover {
- background:  linear-gradient(135deg, #06263b, #0b35f5); 
+  background: linear-gradient(135deg, #06263b63, #0b36f54a); /* Cambia el fondo a un degradado */
  box-shadow: 0 8px 16px rgb(3, 240, 248); /* Efecto de sombra más pronunciado al pasar el mouse */
 
 }
@@ -167,7 +167,6 @@
   overflow: hidden;
   top: 0;
   right: 0;
-  background: linear-gradient(135deg, #1704e4, #1b8bed);
   border-radius: 0 4px 0 32px;
 }
 
@@ -188,7 +187,7 @@
   text-decoration: none;
   z-index: 0;
   overflow: hidden;
-  background: linear-gradient(135deg, #1704e4, #1b8bed);
+  background: linear-gradient(135deg, #1a05fdb3, #1045b886);
   font-family: Arial, Helvetica, sans-serif;
   transition: background-color 0.5s ease;
   transform: rotate(-11deg); /* Rotación inicial */
@@ -197,7 +196,7 @@
 }
 
 .card_info_sobre_mi:hover {
-  background: linear-gradient(135deg, #06263b, #0b35f5); /* Cambia el fondo a un degradado */
+  background: linear-gradient(135deg, #06263b63, #0b36f54a); /* Cambia el fondo a un degradado */
   transform: rotate(0); /* Rotación inicial */
   box-shadow: 0 8px 16px rgb(3, 240, 248); /* Efecto de sombra más pronunciado al pasar el mouse */
 
@@ -216,5 +215,9 @@
 }
 
 
-
+.card_studios{
+  background-color: #0b36f526;
+  border-radius: 5%;
+  height: 450px;
+}
 /*Educacion______________________________________________________________________-*/
