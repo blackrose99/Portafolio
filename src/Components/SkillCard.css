@@ -1,0 +1,54 @@
+.skill {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .skill-name {
+    width: 120px;
+    font-size: 16px;
+  }
+  
+  .skill-level {
+    width: 160px;
+    height: 10px;
+    background-color: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: 20px;
+  }
+  
+  .skill-percent {
+    height: 100%;
+    background: linear-gradient(to right, #00f, #0cf, #00f);
+    animation: neon 1.5s infinite alternate;
+  }
+  
+  .skill-percent-number {
+    margin-left: 20px;
+    font-size: 16px;
+  }
+  
+  /* Hover styles */
+  .html:hover {
+    color: blue;
+  }
+  
+  .css:hover {
+    color: purple;
+  }
+  
+  .js:hover {
+    color: red;
+  }
+  
+  /* Neon animation */
+  @keyframes neon {
+    from {
+      box-shadow: 0 0 5px #00f, 0 0 10px #00f, 0 0 20px #0cf, 0 0 30px #00f, 0 0 40px #00f, 0 0 50px #00f, 0 0 60px #00f, 0 0 70px #00f;
+    }
+    to {
+      box-shadow: 0 0 10px #00f, 0 0 20px #0cf, 0 0 30px #00f, 0 0 40px #00f, 0 0 50px #00f, 0 0 60px #00f, 0 0 70px #00f, 0 0 80px #00f;
+    }
+  }
+  
