@@ -4,7 +4,8 @@ import './Clientes.css';
 const Clientes = () => {
     return (
         <div className="container clientes">
-            <h2 className="text-center mb-4">Mis Clientes</h2>
+
+            <h2 className="text-center mb-4">ELLOS YA CONFIARON EN MI</h2>
             <div className="row">
                 <div className="col-md-4">
                     <div className=" cliente-card">

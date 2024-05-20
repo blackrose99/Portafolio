@@ -15,7 +15,7 @@ const icons = {
 const Servicios = () => {
     return (
         <div className="container servicios">
-            <h2 className="text-center mb-4">Mis Servicios</h2>
+            <h2 className="text-center mb-4">OFREZCO SERVICIOS EN..</h2>
             <div className="row">
                 <div className="col-md-3 col-lg-3">
                     <div className="servicio-card">
