@@ -15,7 +15,7 @@ body.shifted {
 }
 
 .sidebar {
-  background-color: #202632;
+  background-color: #001c55;
   color: #fff;
   width: 260px;
   height: 100vh;
@@ -91,12 +91,13 @@ body.shifted {
   font-size: 40px; /* Tamaño más grande para los iconos */
   margin-bottom: 5px;
 }
+
 .nav-icon:hover {
   color: #0391f6;
-  background-color: #202632;
-  box-shadow: 0 14px 26px rgb(3, 133, 247);
-
+  background-color: #00072d;
+  box-shadow: 0 14px 26px rgb(6, 6, 6);
 }
+
 .nav-text {
   display: none;
   font-size: 18px;
@@ -134,7 +135,7 @@ body.shifted {
   background: none;
   border: none;
   color: #0b58e6;
-  font-size: 24px;
+  font-size: 30px;
   cursor: pointer;
   transition: right 0.3s ease;
   z-index: 1001; /* Asegura que el botón esté sobre el sidebar */
@@ -143,11 +144,13 @@ body.shifted {
 .toggle-btn:hover {
   right: -45px;
 }
+
 .nav-links li.active .nav-icon {
-  color: #0391f6;
+  color: #d62839;
 }
 
 .nav-links li .nav-icon:hover {
-  color: #0391f6;
-  box-shadow: 0 14px 26px rgb(3, 133, 247);
+  color: #d62839;
+  box-shadow: 0 14px 26px rgb(0, 162, 255);
 }
+

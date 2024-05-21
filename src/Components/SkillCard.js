@@ -2,9 +2,24 @@ import React from 'react';
 import "./SkillCard.css";
 
 const SkillCard = ({ name, level }) => {
+    // Define el nombre del icono de Material Icons correspondiente a cada habilidad
+    const iconMap = {
+        HTML: 'code',
+        CSS: 'style',
+        JavaScript: 'code',
+        React: 'web',
+        Bootstrap: 'web',
+        Java: 'developer_board',
+        PHP: 'code',
+        Laravel: 'code',
+        SpringBoot: 'developer_board',
+        NodeJS: 'developer_board',
+    };
+
     return (
-        <div className='col-3 col-md-3 col-lg-3 col-xl-3'>
+        <div className='col-6'>
             <div className="skill">
+                <div className={`skill-icon`}><i className="material-icons">{iconMap[name]}</i></div>
                 <div className={`skill-name ${name.toLowerCase()}`}>{name}</div>
                 <div className="skill-level">
                     <div style={{ width: `${level}%` }} className="skill-percent"></div>
@@ -17,18 +32,12 @@ const SkillCard = ({ name, level }) => {
 
 const SkillCategory = ({ title, skills }) => {
     return (
-        <div className="container">
-            <div className="mt-5">
-                <div className="card">
-                    <div className="card-body">
-                        <div className="header mb-3">{title}</div>
-                        <div className="row d-flex flex-wrap">
-                            {skills.map((skill, index) => (
-                                <SkillCard key={index} name={skill.name} level={skill.level} />
-                            ))}
-                        </div>
-                    </div>
-                </div>
+        <div className="mt-5">
+            <h2 className="text-center mb-4">{title}</h2>
+            <div className="row">
+                {skills.map((skill, index) => (
+                    <SkillCard key={index} name={skill.name} level={skill.level} />
+                ))}
             </div>
         </div>
     );
@@ -53,9 +62,15 @@ const BackendSkills = [
 
 const App = () => {
     return (
-        <div>
-            <SkillCategory title="Frontend Skills" skills={FrontendSkills} />
-            <SkillCategory title="Backend Skills" skills={BackendSkills} />
+        <div className="">
+            <div className="row">
+                <div className="col-md-6">
+                    <SkillCategory title="Frontend Skills" skills={FrontendSkills} />
+                </div>
+                <div className="col-md-6">
+                    <SkillCategory title="Backend Skills" skills={BackendSkills} />
+                </div>
+            </div>
         </div>
     );
 };

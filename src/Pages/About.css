@@ -9,7 +9,7 @@
   text-decoration: none;
   z-index: 0;
   overflow: hidden;
-  background: linear-gradient(135deg, #1a05fdb3, #1045b886);
+  background: linear-gradient(135deg, #1a05fd69, #1045b854);
   font-family: Arial, Helvetica, sans-serif;
   transition: background-color 0.5s ease;
   box-shadow: 0 8px 16px rgb(3, 11, 248); /* Efecto de sombra más pronunciado al pasar el mouse */
@@ -31,9 +31,9 @@
 
 /* Tarjetas de Estudio */
 .card_studios {
-  background: #00000068;
+  background: #0000005b;
   border-radius: 15px;
-  box-shadow: 1px 5px 60px 0px #140cab93;
+  box-shadow: 0px 5px 10px  #fd030393;
   overflow: hidden;
   margin-bottom: 30px;
   height: 100%;
@@ -42,6 +42,11 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.card_studios:hover {
+  box-shadow: 0px 5px 10px #0036fa93;
+}
+
 
 .card_studios img {
   max-width: 180px;

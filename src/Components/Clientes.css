@@ -2,31 +2,46 @@
     margin-top: 20px;
 }
 
-.cliente-card {
-    background: white;
+.clientes .cliente-card {
+    background: #1565c07d;
     padding: .4em;
-    border-radius: 6px;
+    border-radius: 15px;
     margin: 0 auto 20px; /* Centro y espacio inferior */
+    height: 100%;
+    box-shadow: 0 5px 10px rgb(5, 16, 235);
+
+}
+.clientes .cliente-card:hover {
+    box-shadow: 0 10px 15px rgb(250, 2, 2);
+
 }
 
-.card-image {
-    background-color: rgb(236, 236, 236);
-    width: 100%;
-    height: 130px;
+.clientes .card-image {
+    background-color: #000000ae;
+    width: 100%; /* Cambiado a 100% */
+    height: auto; /* Altura deseada para las imágenes */
     border-radius: 6px 6px 0 0;
-    transition: transform 0.3s ease;
+    overflow: hidden; /* Para recortar las imágenes que excedan la altura */
+    display: flex; /* Añadido */
+    justify-content: center; /* Añadido */
+    align-items: center; /* Añadido */
+
 }
 
-.card-image:hover {
-    transform: scale(0.98);
+.clientes .card-image img {
+    max-width: 50%; /* Ajusta el tamaño máximo de la imagen según sea necesario */
+    max-height: 50%; /* Ajusta el tamaño máximo de la imagen según sea necesario */
+    object-fit: cover; /* Para asegurarse de que la imagen se ajuste correctamente dentro del contenedor */
 }
+
 
 .category {
     text-transform: uppercase;
     font-size: 0.7em;
     font-weight: 600;
-    color: rgb(63, 121, 230);
+    color: rgb(255, 255, 255);
     padding: 10px 7px 0;
+    
 }
 
 .category:hover {
@@ -35,7 +50,7 @@
 
 .heading {
     font-weight: 600;
-    color: rgb(88, 87, 87);
+    color: rgb(255, 255, 255);
     padding: 7px;
 }
 
@@ -43,23 +58,8 @@
     cursor: pointer;
 }
 
-.author {
-    color: gray;
-    font-weight: 400;
-    font-size: 11px;
-    padding-top: 20px;
-}
-
-.name {
-    font-weight: 600;
-}
-
-.name:hover {
-    cursor: pointer;
-}
-
 .card-text {
     padding: 10px;
     font-size: 0.9em;
-    color: #333;
+    color: #ffffff;
 }

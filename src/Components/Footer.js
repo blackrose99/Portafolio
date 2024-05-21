@@ -5,7 +5,7 @@ import { faHome, faUser, faProjectDiagram, faEnvelope } from '@fortawesome/free-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Footer = () => {
   return (
-    <footer className="footer bg-dark text-light">
+    <footer className="footer">
       <div className="container py-5">
         <div className="row">
           {/* Primera columna: Imagen con información */}

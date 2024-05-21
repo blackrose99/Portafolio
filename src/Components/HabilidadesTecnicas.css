@@ -1,6 +1,6 @@
 .habilidad-card {
-    width: 120px; /* Ajusta el ancho según sea necesario */
-    height: 120px; /* Ajusta la altura según sea necesario */
+    width: 130px; /* Ajusta el ancho según sea necesario */
+    height: 130px; /* Ajusta la altura según sea necesario */
     background: #000000;
     border-radius: 100%;
     overflow: hidden;
@@ -9,7 +9,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    box-shadow: 0 14px 26px rgb(3, 162, 247);
+    box-shadow: 0 10px 15px rgb(250, 2, 2);
     transition: all 0.3s ease-out;
     text-decoration: none;
     margin-bottom: 30px;
@@ -17,7 +17,7 @@
   
   .habilidad-card:hover {
     transform: translateY(-5px) scale(1.005) translateZ(0);
-    box-shadow: 0 14px 26px rgb(44, 247, 3);
+    box-shadow: 0 14px 26px rgb(3, 80, 247);
   }
   
 
@@ -63,4 +63,39 @@
 
 .crecer_imagen:hover {
     transform: scale(1.1); /* Escala la tarjeta al 140% cuando el mouse está sobre ella */
+}
+
+.habilidad-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.habilidad-circle {
+  position: relative;
+}
+
+.habilidad-text {
+  font-size: 25px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.836); /* Fondo semi-transparente */
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+}
+
+.habilidad-card:hover .habilidad-text {
+  opacity: 2;
+}
+
+.crecer_imagen {
+  width: 100%; /* Asegura que la imagen ocupe todo el contenedor */
+  height: auto;
 }

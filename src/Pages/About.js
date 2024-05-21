@@ -54,11 +54,11 @@ function About() {
         </div>
       </div>
 
-<div>
+<div className=''> 
   <SkillCard/>
 </div>
-      <div className="mt-5 mb-3">
-        <h2 className="text-center mb-4">MI NIVEL DE EDUCACIÓN</h2>
+      <div className="mt-5 mb-5">
+        <h2 className="text-center mb-5">MI NIVEL DE EDUCACIÓN</h2>
         <div className="row">
           <div className="col-md-3">
             <div className="card_studios">
@@ -111,7 +111,7 @@ function About() {
         </div>
       </div>
 
-      <div className='m-4 experience-card container'>
+      <div className='mt-5 experience-card container'>
             <h1>Experiencia</h1>
             <div className="content">
                 <div className="experience">

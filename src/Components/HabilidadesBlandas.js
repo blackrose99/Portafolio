@@ -10,60 +10,38 @@ import imgTrabajoEquipo from "../Pages/img/h-blandas/trabajo-en-equipo.png";
 
 const HabilidadesBlandas = () => {
 
+  const habilidades = [
+    { nombre: "Aprendizaje Rápido", img: imgAprendizajeRapido, descripcion: "Capacidad de adquirir y aplicar nuevos conocimientos rápidamente." },
+    { nombre: "Comunicación Efectiva", img: imgComunicacionEfectiva, descripcion: "Habilidad para expresar ideas de manera clara y concisa." },
+    { nombre: "Liderazgo", img: imgLiderazgo, descripcion: "Capacidad de guiar y motivar a un equipo hacia un objetivo común." },
+    { nombre: "Solución de Problemas", img: imgSolucionProblemas, descripcion: "Habilidad para identificar soluciones efectivas a problemas complejos." },
+    { nombre: "Creatividad", img: imgCreatividad, descripcion: "Capacidad de generar ideas nuevas y originales." },
+    { nombre: "Trabajo en Equipo", img: imgTrabajoEquipo, descripcion: "Habilidad para colaborar y trabajar eficazmente con otros." }
+  ];
 
   return (
-    <div className="container text-center ">
-      <h2 className="m-3">Mis Habilidades Blandas</h2>
-      <div className="row">
-        <div className="col-md-2">
-          <div className="card card_Habilidades_blandas">
-            <img src={imgAprendizajeRapido} className="card-img-top " alt="Aprendizaje Rápido" />
-            <div className="card-body">
-              <h5 className="card-title_negro">Aprendizaje Rápido</h5>
+    <div className="container text-center">
+      <h2 className="m-3">Habilidades Blandas Profesionales</h2>
+      <p className="text-center mb-5">
+    Mis habilidades blandas me permiten adaptarme, comunicarme y liderar de manera efectiva en cualquier entorno profesional. Gracias a mi capacidad de aprendizaje rápido, puedo asimilar nuevas tecnologías y metodologías con facilidad. 
+    Mi comunicación efectiva asegura que las ideas se transmitan claramente y se comprendan correctamente, mejorando la colaboración y reduciendo los malentendidos. 
+    El liderazgo que ejerzo motiva a los equipos a alcanzar sus objetivos y superar desafíos. 
+    Mi habilidad para la solución de problemas me permite abordar y resolver conflictos de manera eficiente, mientras que la creatividad impulsa la innovación en cada proyecto. 
+    Finalmente, el trabajo en equipo garantiza que cada proyecto se desarrolle en un ambiente colaborativo y productivo. Descubre cómo estas competencias pueden beneficiar tu proyecto y llevarlo al siguiente nivel.
+  </p>      <div className="row">
+        {habilidades.map((habilidad, index) => (
+          <div key={index} className="col-md-2">
+            <div className="card card_Habilidades_blandas">
+              <img src={habilidad.img} className="card-img-top" alt={habilidad.nombre} />
+              <div className="card-body_Habilidades_blandas">
+                <h5 className="card-title_negro">{habilidad.nombre}</h5>
+                <div className="card-text">
+                  <p>{habilidad.descripcion}</p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="col-md-2">
-          <div className="card card_Habilidades_blandas">
-            <img src={imgComunicacionEfectiva} className="card-img-top" alt="Comunicación Efectiva" />
-            <div className="card-body">
-              <h5 className="card-title_negro">Comunicación Efectiva</h5>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-2">
-          <div className="card card_Habilidades_blandas">
-            <img src={imgLiderazgo} className="card-img-top" alt="Liderazgo" />
-            <div className="card-body">
-              <h5 className="card-title_negro">Liderazgo</h5>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-2">
-          <div className="card card_Habilidades_blandas">
-            <img src={imgSolucionProblemas} className="card-img-top" alt="Solución de Problemas" />
-            <div className="card-body">
-              <h5 className="card-title_negro">Solución de Problemas</h5>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-2">
-          <div className="card card_Habilidades_blandas">
-            <img src={imgCreatividad} className="card-img-top" alt="Creatividad" />
-            <div className="card-body">
-              <h5 className="card-title_negro">Creatividad</h5>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-2">
-          <div className="card card_Habilidades_blandas ">
-            <img src={imgTrabajoEquipo} className="card-img-top" alt="Trabajo en Equipo" />
-            <div className="card-body">
-              <h5 className="title_negro-title">Trabajo en Equipo</h5>
-            </div>
-          </div>
-        </div>
-        
+        ))}
       </div>
     </div>
   );

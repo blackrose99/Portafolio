@@ -22,7 +22,7 @@ function Header() {
     <div className="container">
       <div className={`sidebar ${menuOpen ? 'open' : 'closed'}`}>
         <button className="toggle-btn" onClick={toggleMenu}>
-          <FontAwesomeIcon icon={menuOpen ? faAngleLeft : faBars} style={{ color: '#f40606e8' }} />
+          <FontAwesomeIcon icon={menuOpen ? faAngleLeft : faBars} style={{ color: '#d62839' }} />
         </button>
         {menuOpen && (
           <div className="profile">
@@ -32,10 +32,30 @@ function Header() {
         )}
         <nav className="nav-menu">
           <ul className="nav-links">
-            <li className={selectedMenu === '/' ? 'active' : ''}><Link to="/" className="nav-link"><FontAwesomeIcon icon={faHome} className="nav-icon" /><span className="nav-text">Inicio</span></Link></li>
-            <li className={selectedMenu === '/about' ? 'active' : ''}><Link to="/about" className="nav-link"><FontAwesomeIcon icon={faUser} className="nav-icon" /><span className="nav-text">Sobre mi</span></Link></li>
-            <li className={selectedMenu === '/projects' ? 'active' : ''}><Link to="/projects" className="nav-link"><FontAwesomeIcon icon={faProjectDiagram} className="nav-icon" /><span className="nav-text">Proyectos</span></Link></li>
-            <li className={selectedMenu === '/contact' ? 'active' : ''}><Link to="/contact" className="nav-link"><FontAwesomeIcon icon={faEnvelope} className="nav-icon" /><span className="nav-text">Contacto</span></Link></li>
+            <li className={selectedMenu === '/' ? 'active' : ''}>
+              <Link to="/" className="nav-link">
+                <FontAwesomeIcon icon={faHome} className="nav-icon" />
+                <span className="nav-text">Inicio</span>
+              </Link>
+            </li>
+            <li className={selectedMenu === '/about' ? 'active' : ''}>
+              <Link to="/about" className="nav-link">
+                <FontAwesomeIcon icon={faUser} className="nav-icon" />
+                <span className="nav-text">Sobre mi</span>
+              </Link>
+            </li>
+            <li className={selectedMenu === '/projects' ? 'active' : ''}>
+              <Link to="/projects" className="nav-link">
+                <FontAwesomeIcon icon={faProjectDiagram} className="nav-icon" />
+                <span className="nav-text">Proyectos</span>
+              </Link>
+            </li>
+            <li className={selectedMenu === '/contact' ? 'active' : ''}>
+              <Link to="/contact" className="nav-link">
+                <FontAwesomeIcon icon={faEnvelope} className="nav-icon" />
+                <span className="nav-text">Contacto</span>
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>

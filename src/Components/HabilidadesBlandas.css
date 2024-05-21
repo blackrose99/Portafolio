@@ -1,28 +1,58 @@
 .card_Habilidades_blandas {
-    max-width: 230px; /* Tamaño máximo de las tarjetas */
-    height: 230px;
-    border: 1px solid #ccc; /* Borde delgados alrededor de las tarjetas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera debajo de las tarjetas */
-    transition: box-shadow 0.3s ease; /* Transición suave para el efecto de sombra */
-    background-color: #168ce654;
-    box-shadow: 0 8px 16px rgb(3, 109, 248);
-    color: white;
+  max-width: 230px; /* Tamaño máximo de las tarjetas */
+  height: 230px;
+  border: 1px solid #ccc; /* Borde delgado alrededor de las tarjetas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera debajo de las tarjetas */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave para el efecto de sombra */
+  background-color: #0353a4;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 15px rgb(47, 2, 250);
 
-  }
-  
-  .card-img-top { 
-    max-width: 150px; /* Define el tamaño máximo de las imágenes */
-    height: auto; /* Permite que la altura se ajuste automáticamente */
-    margin: 0 auto; /* Centra la imagen horizontalmente */
-    display: block; /* Asegura que la imagen se comporte como un bloque */
-    padding: 10px;
-  }
-  
+}
 
-  .card_Habilidades_blandas:hover {
-    transform: scale(1.03); /* Escala la tarjeta al 105% cuando el mouse está sobre ella */
-    box-shadow: 0 8px 16px rgba(3, 248, 224, 0.889);
+.card-img-top {
+  max-width: 220px; /* Define el tamaño máximo de las imágenes */
+  height: auto; /* Permite que la altura se ajuste automáticamente */
+  margin: 0 auto; /* Centra la imagen horizontalmente */
+  display: block; /* Asegura que la imagen se comporte como un bloque */
+  padding: 10px;
+}
 
+.card_Habilidades_blandas:hover {
+  transform: scale(1.05); /* Escala la tarjeta al 105% cuando el mouse está sobre ella */
+  box-shadow: 0 10px 15px rgb(250, 2, 2);
+}
 
-  }
-  
+.card-body_Habilidades_blandas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.824); /* Fondo semi-transparente */
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card_Habilidades_blandas:hover .card-body_Habilidades_blandas {
+  opacity: 1;
+}
+
+.card-title_negro {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 14px;
+  text-align: center;
+  padding: 0 10px;
+}

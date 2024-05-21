@@ -15,7 +15,8 @@ const icons = {
 const Servicios = () => {
     return (
         <div className="container servicios">
-            <h2 className="text-center mb-4">OFREZCO SERVICIOS EN..</h2>
+    <h2 className="text-center mb-4">Servicios Freelance Profesionales que Ofrezco</h2>
+    <p className="text-center mb-5">Con mi experiencia y conocimiento en diversas herramientas y tecnologías, ofrezco servicios personalizados y eficientes para satisfacer las necesidades específicas de tu proyecto. ¡Contrátame como tu freelance de confianza!</p>
             <div className="row">
                 <div className="col-md-3 col-lg-3">
                     <div className="servicio-card">
