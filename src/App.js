@@ -17,6 +17,7 @@ function App() {
   return (
     <div className={`App ${menuOpen ? 'shifted' : ''}`}>
       <BrowserRouter>
+      <h1>hola mundo</h1>
         <Header menuOpen={menuOpen} toggleMenu={toggleMenu} />
         <Routes>
           <Route path="/" element={<Home />} />

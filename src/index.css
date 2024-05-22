@@ -146,11 +146,12 @@ body.shifted {
 }
 
 .nav-links li.active .nav-icon {
-  color: #d62839;
+  color: #f2041c;
 }
 
 .nav-links li .nav-icon:hover {
-  color: #d62839;
-  box-shadow: 0 14px 26px rgb(0, 162, 255);
+  color: #f2041c;
+  box-shadow: 0 14px 26px rgb(255, 0, 0);
+  border-radius: 100%;
 }
 

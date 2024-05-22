@@ -22,7 +22,7 @@ function Header() {
     <div className="container">
       <div className={`sidebar ${menuOpen ? 'open' : 'closed'}`}>
         <button className="toggle-btn" onClick={toggleMenu}>
-          <FontAwesomeIcon icon={menuOpen ? faAngleLeft : faBars} style={{ color: '#d62839' }} />
+          <FontAwesomeIcon icon={menuOpen ? faAngleLeft : faBars} style={{ color: '#f2041c' }} />
         </button>
         {menuOpen && (
           <div className="profile">
