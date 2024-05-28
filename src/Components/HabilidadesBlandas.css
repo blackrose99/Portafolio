@@ -1,14 +1,13 @@
 .card_Habilidades_blandas {
   max-width: 230px; /* Tamaño máximo de las tarjetas */
-  height: 230px;
   border: 1px solid #ccc; /* Borde delgado alrededor de las tarjetas */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera debajo de las tarjetas */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave para el efecto de sombra */
-  background-color: #0353a4;
+  background-color: #ffffff;
   color: white;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 10px 15px rgb(47, 2, 250);
+  box-shadow: 0 10px 15px rgb(2, 2, 2);
 
 }
 
@@ -22,7 +21,7 @@
 
 .card_Habilidades_blandas:hover {
   transform: scale(1.05); /* Escala la tarjeta al 105% cuando el mouse está sobre ella */
-  box-shadow: 0 10px 15px rgb(250, 2, 2);
+  box-shadow: 0 10px 15px rgb(255, 255, 255);
 }
 
 .card-body_Habilidades_blandas {
@@ -36,7 +35,6 @@
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.824); /* Fondo semi-transparente */
-  color: white;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -55,4 +53,11 @@
   font-size: 14px;
   text-align: center;
   padding: 0 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .card_Habilidades_blandas {
+    max-width: 100%; /* Ajusta el ancho máximo al 100% en dispositivos móviles */
+    margin-bottom: 20px; /* Añade un espacio entre las tarjetas */
+  }
 }

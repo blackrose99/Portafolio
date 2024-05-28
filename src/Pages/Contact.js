@@ -11,10 +11,10 @@ const Contact = () => {
 
     return (
         <div className='container'>
-                    <div className="motivador-container">
-            <h1 className="motivador-title">¡Haz realidad tus proyectos!</h1>
-            <p className="motivador-text">Estoy aquí para ayudarte a llevar tus ideas al siguiente nivel. Si buscas un desarrollo web de calidad, ¡no dudes en contactarme!</p>
-        </div>
+            <div className="motivador-container">
+                <h1 className="motivador-title">¡Haz realidad tus proyectos!</h1>
+                <p className="motivador-text">Estoy aquí para ayudarte a llevar tus ideas al siguiente nivel. Si buscas un desarrollo web de calidad, ¡no dudes en contactarme!</p>
+            </div>
             <div class="cube-container mt-5 cube1-container">
                 <div class="cube cube1">
                     <div class="face front1">Desarrollo Movil</div>
@@ -22,10 +22,10 @@ const Contact = () => {
                     <div class="face right1">RPA</div>
                     <div class="face left1">LandingPage</div>
                     <div class="face top1">Aplicativos Web</div>
-                    <div class="face bottom1">Desarrollo de Soluciones</div>
+                    <div class="face bottom1">Inovacion</div>
                 </div>
             </div>
-            <div className="row">
+            <div className="row2">
                 <div className="col-md-3">
                     <button className="btn-whatsapp" onClick={() => handleWhatsAppClick('Desarrollo de Páginas Web')}>
                         <p>Quieres tu página? Contáctame para Desarrollo de Páginas Web</p>

@@ -1,39 +1,41 @@
-/* Tarjeta Sobre Mi_____________________________________ */
 .card_info_sobre_mi {
-  height: 220px;
+  color: #030303;
+  height: 240px;
   display: block;
   position: relative;
   border: 4px solid #f1f5f7;
   border-radius: 20px;
-  padding: 10px;
+  padding: 8px;
   text-decoration: none;
   z-index: 0;
   overflow: hidden;
-  background: linear-gradient(135deg, #1a05fd69, #1045b854);
+  background: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
-  transition: background-color 0.5s ease;
-  box-shadow: 0 8px 16px rgb(3, 11, 248); /* Efecto de sombra más pronunciado al pasar el mouse */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.699); /* Efecto de sombra más pronunciado al pasar el mouse */
 }
 
 .card_info_sobre_mi:hover {
-  background: linear-gradient(135deg, #06263b63, #0b36f54a); /* Cambia el fondo a un degradado */
+  background: rgba(0, 123, 255, 0.6); /* Mantiene el mismo azul pero más opaco */
   box-shadow: 0 8px 16px rgb(3, 89, 248); /* Efecto de sombra más pronunciado al pasar el mouse */
+  transform: scale(1.05); /* Escala la tarjeta al 105% cuando el mouse está sobre ella */
+  color: white;
 }
 
 .img-about-perfil {
-  width: 100%;
-  max-width: 220px;
+  width: 150px;
   border-radius: 50%;
   display: block;
 }
 
-/*Educacion______________________________________________________________________-*/
+
+
 
 /* Tarjetas de Estudio */
 .card_studios {
-  background: #0000005b;
+  background-color: #007bff;
   border-radius: 15px;
-  box-shadow: 0px 5px 10px  #fd030393;
+  box-shadow: 0px 5px 10px #030303;
   overflow: hidden;
   margin-bottom: 30px;
   height: 100%;
@@ -41,20 +43,22 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .card_studios:hover {
-  box-shadow: 0px 5px 10px #0036fa93;
+  background-color: rgba(0, 123, 255, 0.6); /* Mantiene el mismo azul pero más opaco */
+  box-shadow: 0px 5px 10px #007bff;
+  transform: scale(1.05); /* Escala la tarjeta al 105% cuando el mouse está sobre ella */
 }
-
 
 .card_studios img {
-  max-width: 180px;
-max-height: 160px;  object-fit: contain;
-  border-bottom: 4px solid #6b64f3;
+  max-width: 160px;
+  max-height: 140px;
+  object-fit: contain;
+  border-bottom: 4px solid #000000;
   margin-top: 15px;
 }
-
 
 .card-body {
   padding: 20px;
@@ -81,22 +85,9 @@ max-height: 160px;  object-fit: contain;
   margin-bottom: 5px;
 }
 
-.btn-primary {
-  background: #6b64f3;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-weight: 600;
-  color: white;
-  transition: background 0.3s ease;
-  margin-top: 10px;
-}
 
-.btn-primary:hover {
-  background: #534bf3;
-}
 
-/*Estilos para la Exoperiancia*/
+/* Estilos para la Experiencia */
 
 .experience-card {
   /* Estilos para el contenedor principal */
@@ -112,8 +103,7 @@ max-height: 160px;  object-fit: contain;
   margin-bottom: 10px;
 }
 
-
-/* Responsividad -----------------------------*/
+/* Responsividad ----------------------------- */
 @media (max-width: 768px) {
   .col-md-3 {
     flex: 0 0 100%;
@@ -125,4 +115,122 @@ max-height: 160px;  object-fit: contain;
   }
 }
 
+.certificate-button {
+  display: flex;
+  justify-content: center; /* Centra el botón horizontalmente */
+  align-items: center; /* Centra el botón verticalmente */
+  width: 100%; /* Ajusta el ancho del botón */
+  background-color: rgb(0, 0, 0);
+  cursor: pointer;
+  box-shadow: 4px 6px 0px black;
+  border: 4px solid;
+  border-radius: 10px; /* Redondea las esquinas */
+  position: relative;
+  overflow: hidden;
+  z-index: 100;
+  transition: box-shadow 250ms, transform 250ms, filter 50ms;
+  color: white;
+  margin-top: 20px;
+}
 
+.certificate-button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 3px 0px black;
+}
+
+.certificate-button:active {
+  filter: saturate(0.75);
+}
+
+.certificate-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgb(57, 56, 56);
+  z-index: -1;
+  transform: translateX(-100%);
+  transition: transform 250ms;
+}
+
+.certificate-button:hover::after {
+  transform: translateX(0);
+}
+
+.bgContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-size: 0.75rem; /* Ajusta el tamaño del texto */
+}
+
+.arrowContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0; /* Elimina el relleno adicional */
+  margin: 0; /* Elimina los márgenes adicionales */
+  width: 20px; /* Ajusta el ancho del contenedor del icono */
+  height: 20px; /* Ajusta la altura del contenedor del icono */
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%; /* Redondea el contenedor del icono */
+  position: relative;
+  overflow: hidden;
+  transition: transform 250ms, background-color 250ms;
+  z-index: 100;
+  margin-left: 10px;
+}
+
+.arrowContainer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: #007bff;
+  transform: translateX(-100%);
+  z-index: -1;
+  transition: transform 250ms ease-in-out;
+}
+
+.certificate-button:hover .arrowContainer::after {
+  transform: translateX(0);
+}
+
+.certificate-button:hover .arrowContainer {
+  transform: translateX(5px);
+}
+
+.certificate-button:active .arrowContainer {
+  transform: translateX(8px);
+}
+
+.arrowContainer svg {
+  width: 15px; /* Ajusta el tamaño del icono SVG */
+  height: 15px; /* Ajusta el tamaño del icono SVG */
+  vertical-align: middle;
+}
+
+
+/* Estilos específicos para la vista de celular */
+@media (max-width: 767px) {
+  /* Ajusta el tamaño de la imagen de perfil en la tarjeta de información personal */
+  .img-about-perfil {
+    max-width: 400px;
+  }
+
+  /* Ajusta el tamaño de las imágenes en las tarjetas de educación */
+  .card_studios img {
+    max-width: 100px;
+    max-height: 80px;
+  }
+
+  /* Estilos generales para las tarjetas */
+.card_info_sobre_mi,
+.experience-card {
+  margin-bottom: 25px; /* Añade un margen inferior para separar las tarjetas */
+}
+.card_studios{
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+}

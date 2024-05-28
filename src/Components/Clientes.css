@@ -3,24 +3,23 @@
 }
 
 .clientes .cliente-card {
-    background: #1565c07d;
+    background: #2f6690;
     padding: .4em;
     border-radius: 15px;
     margin: 0 auto 20px; /* Centro y espacio inferior */
     height: 100%;
-    box-shadow: 0 5px 10px rgb(5, 16, 235);
+    box-shadow: 0 5px 10px rgb(0, 0, 0);
 
 }
 .clientes .cliente-card:hover {
-    box-shadow: 0 10px 15px rgb(250, 2, 2);
+    box-shadow: 0 10px 15px rgb(255, 255, 255);
 
 }
 
 .clientes .card-image {
-    background-color: #000000ae;
     width: 100%; /* Cambiado a 100% */
     height: auto; /* Altura deseada para las imágenes */
-    border-radius: 6px 6px 0 0;
+    border-radius: 50px;
     overflow: hidden; /* Para recortar las imágenes que excedan la altura */
     display: flex; /* Añadido */
     justify-content: center; /* Añadido */
@@ -29,8 +28,8 @@
 }
 
 .clientes .card-image img {
-    max-width: 50%; /* Ajusta el tamaño máximo de la imagen según sea necesario */
-    max-height: 50%; /* Ajusta el tamaño máximo de la imagen según sea necesario */
+    max-width: 60%; /* Ajusta el tamaño máximo de la imagen según sea necesario */
+    max-height: 60%; /* Ajusta el tamaño máximo de la imagen según sea necesario */
     object-fit: cover; /* Para asegurarse de que la imagen se ajuste correctamente dentro del contenedor */
 }
 

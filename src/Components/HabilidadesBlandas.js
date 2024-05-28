@@ -23,11 +23,8 @@ const HabilidadesBlandas = () => {
     <div className="container text-center">
       <h2 className="m-3">Habilidades Blandas Profesionales</h2>
       <p className="text-center mb-5">
-    Mis habilidades blandas me permiten adaptarme, comunicarme y liderar de manera efectiva en cualquier entorno profesional. Gracias a mi capacidad de aprendizaje rápido, puedo asimilar nuevas tecnologías y metodologías con facilidad. 
-    Mi comunicación efectiva asegura que las ideas se transmitan claramente y se comprendan correctamente, mejorando la colaboración y reduciendo los malentendidos. 
-    El liderazgo que ejerzo motiva a los equipos a alcanzar sus objetivos y superar desafíos. 
-    Mi habilidad para la solución de problemas me permite abordar y resolver conflictos de manera eficiente, mientras que la creatividad impulsa la innovación en cada proyecto. 
-    Finalmente, el trabajo en equipo garantiza que cada proyecto se desarrolle en un ambiente colaborativo y productivo. Descubre cómo estas competencias pueden beneficiar tu proyecto y llevarlo al siguiente nivel.
+    Mis habilidades blandas me permiten adaptarme, comunicarme y liderar de manera efectiva en cualquier entorno profesional. 
+   
   </p>      <div className="row">
         {habilidades.map((habilidad, index) => (
           <div key={index} className="col-md-2">

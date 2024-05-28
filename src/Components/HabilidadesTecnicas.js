@@ -171,9 +171,9 @@ const HabilidadesTecnicas = () => {
 
 return (
 <div className="habilidades-tecnicas-container">
-    <h2 className='text-center m-3 mt-5 mb-3'>Mis Habilidades Técnicas en Herramientas de Desarrollo</h2>
-    <p className='text-center mb-5'>Con un amplio conocimiento en diversas herramientas y tecnologías, puedo ofrecer soluciones personalizadas que se adaptan a las necesidades específicas de cada cliente.</p>
-    <div className="fila_logos row">
+  <h2 className='text-center m-3 mt-5 mb-3'>Mis Habilidades Técnicas en Herramientas de Desarrollo</h2>
+  <p className='text-center mb-5'>Con un amplio conocimiento en diversas herramientas y tecnologías, puedo ofrecer soluciones personalizadas que se adaptan a las necesidades específicas de cada cliente.</p>
+  <div className="fila_logos row">
         {habilidades.map((habilidad, index) => (
             <div key={index} className={`habilidad-card ${habilidad.categoria.toLowerCase().replace(/\s/g, '-')}`} style={{ transform: `translateX(${100 * (index - currentIndex)}%)` }}>
                 <div className="habilidad-overlay"></div>

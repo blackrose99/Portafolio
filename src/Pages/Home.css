@@ -20,6 +20,7 @@
 }
 
 .bienvenida_titulo {
-  color: rgb(5, 115, 250);
-  margin-bottom: 20px;
+  color: #007bff;
+  font-size: 60px;
+  margin-bottom: 40px;
 }

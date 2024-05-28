@@ -62,10 +62,10 @@ const Servicios = () => {
                                     <small className="badge">RPA</small>
                                     <div className="description">
                                         <div className="title">
-                                            <p><strong>RPA con Rocketchat</strong></p>
+                                            <p><strong>RPA con RockeBot</strong></p>
                                             <FontAwesomeIcon icon={icons.rpa} className="icon" />
                                         </div>
-                                        <p className="card-footer">Servicio de RPA con Rocketchat para automatización de procesos</p>
+                                        <p className="card-footer">Servicio de RPA con RocketBot para automatización de procesos</p>
                                     </div>
                                 </div>
                             </div>

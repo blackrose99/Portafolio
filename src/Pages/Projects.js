@@ -26,19 +26,12 @@ const App = () => {
     }
     ,
     {
-      title: 'Tercer Proyecto',
+      title: 'Repositorio Académico',
       tools: 'Tecnología A, Tecnología B',
-      description: 'Este es el tercer proyecto.',
+      description: 'Este es el tercer proyecto. Aquí puedes agregar una descripción detallada del proyecto.',
       screenshots: [imgCap1Hackatom, imgCap2Hackatom],
       githubLink: 'https://github.com/tuusuario/proyecto3',
     },
-    {
-      title: 'Cuarto Proyecto',
-      tools: 'Tecnología P, Tecnología Q',
-      description: 'Este es el cuarto proyecto.',
-      screenshots: [imgfot1Hacktatom],
-      githubLink: 'https://github.com/tuusuario/proyecto4',
-    }
   ];
 
   return (

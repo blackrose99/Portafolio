@@ -1,66 +1,63 @@
 .skill {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 20px;
-  background-color: #061a40;
+  padding: 10px;
+  background-color: #007bff;
   border-radius: 10px;
-
+  color: white;
+  box-sizing: border-box;
+  transition: box-shadow 0.3s ease;
 }
-.skill:hover{
-  box-shadow: 0 5px 10px rgb(250, 2, 2);
-  border-radius: 10px;
 
+.skill:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
 .skill-icon {
   font-size: 34px;
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
 .skill-name {
-  width: 120px;
-  font-size: 25px;
+  flex: 1;
+  font-size: 20px;
 }
 
 .skill-level {
-  width: 160px;
-  height: 10px;
-  background-color: #eee;
+  flex: 2;
+  height: 15px;
+  background-color: #000000;
   border-radius: 10px;
   overflow: hidden;
-  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .skill-percent {
   height: 100%;
-  background: linear-gradient(to right, #00f, #0cf, #00f);
-  animation: neon 1.5s infinite alternate;
+  background: white;
+  transition: width 2s ease-in-out;
 }
 
 .skill-percent-number {
-  margin-left: 20px;
-  font-size: 16px;
+  font-size: 18px;
+  text-align: right;
 }
 
-/* Hover styles */
-.html:hover {
-  color: blue;
-}
-
-.css:hover {
-  color: purple;
-}
-
-.js:hover {
-  color: red;
-}
-
-/* Neon animation */
-@keyframes neon {
-  from {
-      box-shadow: 0 0 5px #00f, 0 0 10px #00f, 0 0 20px #0cf, 0 0 30px #00f, 0 0 40px #00f, 0 0 50px #00f, 0 0 60px #00f, 0 0 70px #00f;
+@media screen and (max-width: 768px) {
+  .skill {
+    flex-direction: column; /* Cambia la dirección del diseño a columna en dispositivos móviles */
+    align-items: flex-start; /* Alinea los elementos al inicio de la columna */
+    padding: 20px; /* Aumenta el relleno para un mejor aspecto en dispositivos móviles */
   }
-  to {
-      box-shadow: 0 0 10px #00f, 0 0 20px #0cf, 0 0 30px #00f, 0 0 40px #00f, 0 0 50px #00f, 0 0 60px #00f, 0 0 70px #00f, 0 0 80px #00f;
+
+  .skill-name {
+    margin-bottom: 10px; /* Agrega espacio entre el nombre de la habilidad y el nivel en dispositivos móviles */
+  }
+
+  .skill-level {
+    width: 100%; /* Asegura que la barra de nivel ocupe todo el ancho disponible */
+    margin-right: 0; /* Elimina el margen derecho en dispositivos móviles */
   }
 }

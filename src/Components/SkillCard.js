@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./SkillCard.css";
 
 const SkillCard = ({ name, level }) => {
@@ -15,14 +15,20 @@ const SkillCard = ({ name, level }) => {
         SpringBoot: 'developer_board',
         NodeJS: 'developer_board',
     };
+    const [animationLevel, setAnimationLevel] = useState(0);
 
-    return (
+    useEffect(() => {
+        setTimeout(() => setAnimationLevel(level), 100); // Start the animation after a short delay
+    }, [level]);
+
+
+   return (
         <div className='col-6'>
             <div className="skill">
                 <div className={`skill-icon`}><i className="material-icons">{iconMap[name]}</i></div>
                 <div className={`skill-name ${name.toLowerCase()}`}>{name}</div>
                 <div className="skill-level">
-                    <div style={{ width: `${level}%` }} className="skill-percent"></div>
+                    <div style={{ width: `${animationLevel}%` }} className="skill-percent"></div>
                 </div>
                 <div className="skill-percent-number">{`${level}%`}</div>
             </div>
@@ -47,8 +53,9 @@ const FrontendSkills = [
     { name: 'HTML', level: 90 },
     { name: 'CSS', level: 80 },
     { name: 'JavaScript', level: 75 },
-    { name: 'React', level: 70 },
+    { name: 'React.js', level: 70 },
     { name: 'Bootstrap', level: 78 },
+    { name: 'Next.js', level:20}
 ];
 
 const BackendSkills = [
@@ -62,7 +69,7 @@ const BackendSkills = [
 
 const App = () => {
     return (
-        <div className="">
+        <div className="container">
             <div className="row">
                 <div className="col-md-6">
                     <SkillCategory title="Frontend Skills" skills={FrontendSkills} />
