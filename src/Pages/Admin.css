@@ -1,0 +1,68 @@
+.admin-page {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.admin-card {
+  background: #0f1e3a;
+  border: 1px solid #2563EB;
+  border-radius: 12px;
+  padding: 3rem 4rem;
+  text-align: center;
+  max-width: 420px;
+  width: 100%;
+}
+
+.admin-title {
+  color: #fff;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.admin-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-stat-label {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.admin-stat-number {
+  color: #2563EB;
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.admin-note {
+  color: #64748b;
+  font-size: 0.82rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.admin-reset-btn {
+  background: transparent;
+  border: 1px solid #ef4444;
+  color: #ef4444;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.admin-reset-btn:hover {
+  background: #ef4444;
+  color: #fff;
+}
