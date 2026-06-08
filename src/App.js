@@ -1,32 +1,33 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { DataProvider } from './context/DataContext';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Home from './Pages/Home';
 import About from './Pages/About';
-import Contact from './Pages/Contact';
 import Projects from './Pages/Projects';
+import Contact from './Pages/Contact';
 
 function App() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className={`App ${menuOpen ? 'shifted' : ''}`}>
+    <DataProvider>
       <BrowserRouter>
-        <Header menuOpen={menuOpen} toggleMenu={toggleMenu} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/projects" element={<Projects />} />
-        </Routes>
+        <div className="app-shell">
+          <Header open={sidebarOpen} onToggle={() => setSidebarOpen((v) => !v)} />
+          <main className={`app-content${sidebarOpen ? ' sidebar-open' : ''}`}>
+            <Routes>
+              <Route path="/"         element={<Home />} />
+              <Route path="/about"    element={<About />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/contact"  element={<Contact />} />
+            </Routes>
+            <Footer />
+          </main>
+        </div>
       </BrowserRouter>
-      <Footer />
-    </div>
+    </DataProvider>
   );
 }
 

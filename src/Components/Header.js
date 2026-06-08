@@ -1,67 +1,64 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUser, faProjectDiagram, faEnvelope, faBars, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
-import fotoPerfil from "./img/foto.jpg";
+import {
+  RiHomeLine,
+  RiUser3Line,
+  RiFolderLine,
+  RiMailLine,
+  RiMenuLine,
+  RiArrowLeftLine,
+} from 'react-icons/ri';
+import { useData } from '../context/DataContext';
+import fotoPerfil from './img/luis manuel castaño.png';
 
-function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [selectedMenu, setSelectedMenu] = useState('/');
+const NAV_ITEMS = [
+  { to: '/',         label: 'Inicio',    Icon: RiHomeLine },
+  { to: '/about',    label: 'Sobre Mí',  Icon: RiUser3Line },
+  { to: '/projects', label: 'Proyectos', Icon: RiFolderLine },
+  { to: '/contact',  label: 'Contacto',  Icon: RiMailLine },
+];
+
+function Header({ open, onToggle }) {
   const location = useLocation();
-
-  useEffect(() => {
-    setSelectedMenu(location.pathname);
-  }, [location]);
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-    document.body.classList.toggle('shifted', !menuOpen);
-  };
+  const { profile } = useData();
 
   return (
-    <div className="container">
-      <div className={`sidebar ${menuOpen ? 'open' : 'closed'}`}>
-        <div className="menu-container">
-          <button className="toggle-btn mb-4" onClick={toggleMenu}>
-            <FontAwesomeIcon icon={menuOpen ? faAngleLeft : faBars}  />
-          </button>
-          {menuOpen && (
-            <div className="profile">
-              <img src={fotoPerfil} alt="Foto de perfil" className="profile-picture" />
-              <h2 className="profile-name">Manuel Castaño</h2>
-            </div>
-          )}
-          <nav className="nav-menu">
-            <ul className="nav-links">
-              <li className={selectedMenu === '/' ? 'active' : ''}>
-                <Link to="/" className="nav-link">
-                  <FontAwesomeIcon icon={faHome} className="nav-icon" />
-                  <span className="nav-text">Inicio</span>
-                </Link>
-              </li>
-              <li className={selectedMenu === '/about' ? 'active' : ''}>
-                <Link to="/about" className="nav-link">
-                  <FontAwesomeIcon icon={faUser} className="nav-icon" />
-                  <span className="nav-text">Sobre mi</span>
-                </Link>
-              </li>
-              <li className={selectedMenu === '/projects' ? 'active' : ''}>
-                <Link to="/projects" className="nav-link">
-                  <FontAwesomeIcon icon={faProjectDiagram} className="nav-icon" />
-                  <span className="nav-text">Proyectos</span>
-                </Link>
-              </li>
-              <li className={selectedMenu === '/contact' ? 'active' : ''}>
-                <Link to="/contact" className="nav-link">
-                  <FontAwesomeIcon icon={faEnvelope} className="nav-icon" />
-                  <span className="nav-text">Contacto</span>
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
+    <aside className={`sidebar${open ? ' open' : ''}`}>
+      <button
+        className="sidebar-toggle"
+        onClick={onToggle}
+        aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+      >
+        {open ? <RiArrowLeftLine size={18} /> : <RiMenuLine size={18} />}
+      </button>
+
+      <div className="sidebar-profile">
+        <img
+          src={fotoPerfil}
+          alt={profile.fullName}
+          className="sidebar-profile-img"
+        />
+        <span className="sidebar-profile-name">{profile.displayName}</span>
+        <span className="sidebar-profile-role">{profile.title}</span>
       </div>
-    </div>
+
+      <nav className="sidebar-nav" aria-label="Navegación principal">
+        {NAV_ITEMS.map(({ to, label, Icon }) => (
+          <div className="nav-item" key={to}>
+            <Link
+              to={to}
+              className={`nav-link${location.pathname === to ? ' active' : ''}`}
+            >
+              <span className="nav-icon">
+                <Icon size={20} />
+              </span>
+              <span className="nav-label">{label}</span>
+            </Link>
+            <span className="nav-tooltip">{label}</span>
+          </div>
+        ))}
+      </nav>
+    </aside>
   );
 }
 

@@ -1,54 +1,90 @@
 import React from 'react';
-import ProjectCard from '../Components/ProjectCard ';
-import imgCap1Hackatom from "./img/projects/captura1.png";
-import imgCap2Hackatom from "./img/projects/caprura2.png";
-import imgfot1Hacktatom from "./img/projects/foto1.jpg";
+import { RiGithubLine, RiExternalLinkLine, RiCodeLine } from 'react-icons/ri';
+import { useData } from '../context/DataContext';
+import './Projects.css';
 
-// import imgcap1Tickets from "./img/projects/img_ticket1.png";
+function ProjectCard({ project }) {
+  return (
+    <article className="project-card card">
+      {project.highlight && (
+        <span className="project-card__featured">Destacado</span>
+      )}
+      <div className="project-card__body">
+        <div className="project-card__header">
+          <span className="project-card__icon"><RiCodeLine /></span>
+          <h2 className="project-card__title">{project.title}</h2>
+        </div>
+        <p className="project-card__desc">{project.description}</p>
+        <div className="project-card__tools">
+          {project.tools.map((t) => (
+            <span key={t} className="badge badge--daily">{t}</span>
+          ))}
+        </div>
+      </div>
+      <div className="project-card__footer">
+        {project.github && (
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn--ghost project-card__link"
+          >
+            <RiGithubLine /> Ver código
+          </a>
+        )}
+        {project.demo && (
+          <a
+            href={project.demo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn--primary project-card__link"
+          >
+            <RiExternalLinkLine /> Ver demo
+          </a>
+        )}
+      </div>
+    </article>
+  );
+}
 
-const App = () => {
-  // Supongamos que tienes un array de proyectos
-  const projects = [
-    {
-      title: 'Hackatom Resto Financiera Comultrasan',
-      tools: 'React.js, Node.js, SQL, Git, Bootstrap',
-      description: 'Este proyecto fue un reto de la hackatón de Softic 2023 para desarrollar un sistema que permitiera a los usuarios realizar pagos mediante códigos QR. La solución debía ser fácil de usar y permitir a los clientes de Financiera Comultrasan generar códigos QR ilimitados para recibir pagos en sus cuentas, con seguimiento de transacciones.',
-      screenshots: [imgfot1Hacktatom, imgCap1Hackatom, imgCap2Hackatom],
-      githubLink: 'https://github.com/blackrose99/HackatTonReto-1',
-    }
-    ,
-    {
-      "title": "Gestión de Tickets para Eventos",
-      "tools": "Laravel, MySQL, Google Auth, Git, PHP, Bootstrap",
-      "description": "Desarrollé un sistema para gestionar tickets de eventos, permitiendo a los usuarios iniciar sesión con Google. Los usuarios pueden ver una lista de stands dentro del evento o feria, calificarlos y hacer un seguimiento de los stands visitados. Cada stand tiene un código QR único que los usuarios pueden escanear para calificarlo y marcar su asistencia. Utilicé Laravel, MySQL, Google Auth, Git, PHP y Bootstrap para desarrollar esta solución.",
-      "githubLink": "https://github.com/tuusuario/proyecto2",
-      "screenshots": ["imgfot1Hacktatom"]
-    }
-    ,
-    {
-      title: 'Repositorio Académico',
-      tools: 'Tecnología A, Tecnología B',
-      description: 'Este es el tercer proyecto. Aquí puedes agregar una descripción detallada del proyecto.',
-      screenshots: [imgCap1Hackatom, imgCap2Hackatom],
-      githubLink: 'https://github.com/tuusuario/proyecto3',
-    },
-  ];
+function Projects() {
+  const { projects } = useData();
 
   return (
-    <div className="container">
-      <h1 className='mt-5'>Mis Proyectos</h1>
-      {projects.map((project, index) => (
-        <ProjectCard
-          key={index}
-          title={project.title}
-          tools={project.tools}
-          description={project.description}
-          screenshots={project.screenshots}
-          githubLink={project.githubLink}
-        />
-      ))}
-    </div>
-  );
-};
+    <>
+      <section className="page-section page-section--dark projects-hero">
+        <div className="container">
+          <div className="section-header section-header--light">
+            <h1>Proyectos</h1>
+            <p>
+              Soluciones construidas con propósito, tecnología y atención al detalle.
+            </p>
+            <span className="section-divider" />
+          </div>
+        </div>
+      </section>
 
-export default App;
+      <section className="page-section page-section--light">
+        <div className="container">
+          <div className="projects-grid">
+            {projects.map((p) => (
+              <ProjectCard key={p.id} project={p} />
+            ))}
+          </div>
+          <p className="projects-note">
+            Más proyectos disponibles en{' '}
+            <a
+              href="https://github.com/blackrose99"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              github.com/blackrose99
+            </a>
+          </p>
+        </div>
+      </section>
+    </>
+  );
+}
+
+export default Projects;

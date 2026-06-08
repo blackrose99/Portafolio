@@ -1,76 +1,87 @@
 import React from 'react';
-import './Footer.css'; // Importa el archivo de estilos del footer
-import { faFacebook, faInstagram, faDiscord, faGithub, faLinkedin, faWhatsapp, faGoogle, faReddit, faTelegram, faXing } from '@fortawesome/free-brands-svg-icons';
-import { faHome, faUser, faProjectDiagram, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
+import {
+  RiGithubLine,
+  RiLinkedinLine,
+  RiWhatsappLine,
+  RiMailLine,
+  RiFacebookLine,
+  RiInstagramLine,
+  RiTelegramLine,
+  RiTwitterLine,
+} from 'react-icons/ri';
+import { useData } from '../context/DataContext';
 
-const Footer = () => {
+const NAV_LINKS = [
+  { to: '/',         label: 'Inicio' },
+  { to: '/about',    label: 'Sobre Mí' },
+  { to: '/projects', label: 'Proyectos' },
+  { to: '/contact',  label: 'Contacto' },
+];
+
+const SOCIAL_LINKS = [
+  { href: 'https://github.com/blackrose99',                                              Icon: RiGithubLine,    label: 'GitHub' },
+  { href: 'https://www.linkedin.com/in/luis-manuel-casta%C3%B1o-grueso-167881197/',      Icon: RiLinkedinLine,  label: 'LinkedIn' },
+  { href: 'https://wa.me/573168142027',                                                  Icon: RiWhatsappLine,  label: 'WhatsApp' },
+  { href: 'mailto:mannuelcast321@gmail.com',                                              Icon: RiMailLine,      label: 'Email' },
+  { href: 'https://www.facebook.com/LuisManuelCastano14/',                               Icon: RiFacebookLine,  label: 'Facebook' },
+  { href: 'https://www.instagram.com/luismanuelcastano14/',                              Icon: RiInstagramLine, label: 'Instagram' },
+  { href: 'https://t.me/Lmcastano',                                                      Icon: RiTelegramLine,  label: 'Telegram' },
+  { href: 'https://twitter.com/Manuel_0914',                                             Icon: RiTwitterLine,   label: 'Twitter' },
+];
+
+function Footer() {
+  const { profile } = useData();
+  const year = new Date().getFullYear();
+
   return (
     <footer className="footer">
-      <div className="container">
-        <div className="footer-content">
-          <div className="footer-column">
-            <div className="card_footerP">
-              <div className="border"></div>
-              <div className="content">
-                <div className="logo">
-                  <div className="logo1 title_my">
-                    {"{My}"}
-                  </div>
-                  <div className="logo2">
-                    <div className="logo-text">{"Softwareland"}</div>
-                  </div>
-                  <span className="trail"></span>
-                </div>
-                <span className="logo-bottom-text mt-5">Jr Developer</span>
-              </div>
-              <span className="bottom-text">Desarrollador Web</span>
-            </div>
-          </div>
-
-          {/* Segunda columna: Información personal */}
-          <div className="footer-column">
-            <h4>Información de Contacto</h4>
-            <ul className="list-unstyled">
-              <li className="btnFooter">Linkedin: <a href="https://www.linkedin.com/in/luis-manuel-casta%C3%B1o-grueso-167881197/" target="_blank" rel="noopener noreferrer">Luis Manuel Castaño Grueso</a></li>
-              <li className="btnFooter">Mail: <a href="mailto:mannuelcast321@gmail.com" target="_blank" rel="noopener noreferrer">mannuelcast321@gmail.com</a></li>
-              <li className="btnFooter">Whatsapp: <a href="https://wa.me/3168142027" target="_blank" rel="noopener noreferrer">+573168142027</a></li>
-              <li className="btnFooter">Dockerhub: <a href="https://hub.docker.com/u/lmcastano" target="_blank" rel="noopener noreferrer">lmcastano</a></li>
-              <li className="btnFooter">GitHub: <a href="https://github.com/blackrose99" target="_blank" rel="noopener noreferrer">Blackrose99</a></li>
-            </ul>
-          </div>
-
-          {/* Tercera columna: Enlaces y redes sociales */}
-          <div className="footer-column">
-            <h4>Menu</h4>
-            <ul className="list-unstyled menuList">
-              <li><a href="/" className="btnFooter "><FontAwesomeIcon icon={faHome} /> Inicio</a></li>
-              <li><a href="/about" className="btnFooter "><FontAwesomeIcon icon={faUser} /> Sobre mi</a></li>
-              <li><a href="/projects" className="btnFooter"><FontAwesomeIcon icon={faProjectDiagram} /> Proyectos</a></li>
-              <li><a href="/contact" className="btnFooter "><FontAwesomeIcon icon={faEnvelope} /> Contacto</a></li>
-            </ul>
-          </div>
+      <div className="footer-grid">
+        <div className="footer-brand">
+          <h3>
+            Luis Manuel<br />
+            <span style={{ color: 'var(--color-accent)' }}>Castaño Grueso</span>
+          </h3>
+          <p>
+            Desarrollador Full Stack orientado a construir soluciones
+            escalables y de alto impacto desde Bucaramanga, Colombia.
+          </p>
         </div>
 
-        {/* Lista de redes sociales con animaciones */}
-        <div className="social-icons">
-          <ul className="list-unstyled d-flex justify-content-between flex-wrap">
-            <li><a href="https://www.facebook.com/LuisManuelCastano14/" target="_blank" rel="noopener noreferrer" className="social-icon"><FontAwesomeIcon icon={faFacebook} className="icon" /></a></li>
-            <li><a href="https://www.instagram.com/luismanuelcastano14/" target="_blank" rel="noopener noreferrer" className="social-icon"><FontAwesomeIcon icon={faInstagram} className="icon" /></a></li>
-            <li><a href="https://discord.com/" target="_blank" rel="noopener noreferrer" className="social-icon"><FontAwesomeIcon icon={faDiscord} className="icon" /></a></li>
-            <li><a href="https://github.com/blackrose99" target="_blank" rel="noopener noreferrer" className="social-icon"><FontAwesomeIcon icon={faGithub} className="icon" /></a></li>
-            <li><a href="https://www.linkedin.com/in/luis-manuel-casta%C3%B1o-grueso-167881197/" target="_blank" rel="noopener noreferrer" className="social-icon"><FontAwesomeIcon icon={faLinkedin} className="icon" /></a></li>
-            <li><a href="https://wa.me/3168142027" target="_blank" rel="noopener noreferrer" className="social-icon"><FontAwesomeIcon icon={faWhatsapp} className="icon" /></a></li>
-            <li><a href="mailto:mannuelcast321@gmail.com" target="_blank" rel="noopener noreferrer" className="social-icon"><FontAwesomeIcon icon={faGoogle} className="icon" /></a></li>
-            <li><a href="https://www.reddit.com/user/DecentGrowth7631/" target="_blank" rel="noopener noreferrer" className="social-icon"><FontAwesomeIcon icon={faReddit} className="icon" /></a></li>
-            <li><a href="https://t.me/Lmcastano" target="_blank" rel="noopener noreferrer" className="social-icon"><FontAwesomeIcon icon={faTelegram} className="icon" /></a></li>
-            <li><a href="https://twitter.com/Manuel_0914" target="_blank" rel="noopener noreferrer" className="social-icon"><FontAwesomeIcon icon={faXing} className="icon" /></a></li>
+        <div className="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            {NAV_LINKS.map(({ to, label }) => (
+              <li key={to}>
+                <Link to={to}>{label}</Link>
+              </li>
+            ))}
           </ul>
         </div>
 
+        <div className="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href={`mailto:${profile.email}`}>{profile.email}</a></li>
+            <li><a href={profile.whatsapp} target="_blank" rel="noopener noreferrer">{profile.phone}</a></li>
+            <li><a href={profile.github} target="_blank" rel="noopener noreferrer">github.com/blackrose99</a></li>
+            <li><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="footer-bottom">
+        <p>© {year} Luis Manuel Castaño Grueso · Bucaramanga, Colombia</p>
+        <div className="footer-social">
+          {SOCIAL_LINKS.map(({ href, Icon, label }) => (
+            <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
+              <Icon size={16} />
+            </a>
+          ))}
+        </div>
       </div>
     </footer>
   );
-};
+}
 
 export default Footer;
