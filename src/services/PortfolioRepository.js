@@ -1,16 +1,18 @@
 import {
   profile,
+  stats,
   skills,
   education,
   softSkills,
   languages,
-  projects,
-  bibliography,
+  services,
   fictionStory,
 } from '../data/portfolioData';
 
 const PortfolioRepository = {
   getProfile: () => profile,
+
+  getStats: () => stats,
 
   getSkillsByLevel: (level) =>
     level ? skills.filter((s) => s.level === level) : skills,
@@ -28,16 +30,7 @@ const PortfolioRepository = {
 
   getLanguages: () => languages,
 
-  getProjects: () => projects,
-
-  getHighlightedProjects: () => projects.filter((p) => p.highlight),
-
-  getProjectById: (id) => projects.find((p) => p.id === id) || null,
-
-  getBibliography: () => bibliography,
-
-  getBibliographyByType: (type) =>
-    type ? bibliography.filter((b) => b.type === type) : bibliography,
+  getServices: () => services,
 
   getFictionStory: () => fictionStory,
 };

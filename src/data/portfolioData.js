@@ -1,191 +1,170 @@
-import CV from '../pdf/CV_Luis-Castaño_2026.pdf';
-import DiplomaBachiller from '../pdf/DiplomaBachiller.pdf';
-import DiplomaTecnico from '../pdf/diplomaTecnicoEnSistemas.pdf';
-import DiplomaTecnologo from '../pdf/diplomaTecnologo en sistemas.pdf';
+// ============================================================
+//  PORTFOLIO DATA — single source of truth (English content)
+//  Browser auto-translation friendly. No PDFs, no exposed
+//  sensitive contact info (channels live only as icon links).
+// ============================================================
 
 export const profile = {
   fullName: 'Luis Manuel Castaño Grueso',
   displayName: 'Luis Castaño',
   title: 'Full Stack Developer',
-  subtitle: 'Desarrollador Full Stack',
-  tagline:
-    'Ingeniero de Sistemas orientado a construir soluciones escalables, eficientes y de alto impacto.',
-  bio: `Soy Ingeniero de Sistemas con experiencia en desarrollo web full stack y optimización de procesos de software.
-Me especializo en identificar cuellos de botella, mejorar el rendimiento de aplicaciones y construir soluciones
-eficientes combinando tecnología moderna con impacto real. Trabajo con PHP y Symfony en entornos de producción,
-diseño interfaces dinámicas con React y JavaScript, integro APIs RESTful y gestiono bases de datos relacionales.`,
+  eyebrow: 'Full Stack Developer',
+  tagline: 'I build scalable, efficient, high-impact software.',
+  bio: `Systems Engineer specialized in full-stack web development and software optimization.
+I work with PHP and Symfony in production, craft dynamic interfaces with React and JavaScript,
+integrate RESTful APIs and tune relational databases — turning bottlenecks into performance
+and ideas into real impact.`,
   location: 'Bucaramanga, Colombia',
+
+  // Contact channels — used ONLY as icon links, never rendered as text.
   email: 'mannuelcast321@gmail.com',
-  phone: '+57 316 814 2027',
+  phone: '573168142027',
   github: 'https://github.com/blackrose99',
   linkedin: 'https://www.linkedin.com/in/luis-manuel-casta%C3%B1o-grueso-167881197/',
   whatsapp: 'https://wa.me/573168142027',
-  dockerhub: 'https://hub.docker.com/u/lmcastano',
   telegram: 'https://t.me/Lmcastano',
   facebook: 'https://www.facebook.com/LuisManuelCastano14/',
   instagram: 'https://www.instagram.com/luismanuelcastano14/',
   twitter: 'https://twitter.com/Manuel_0914',
-  reddit: 'https://www.reddit.com/user/DecentGrowth7631/',
-  cv: CV,
 };
 
+// Quick interactive figures for the hero / about strip.
+export const stats = [
+  { value: '6',   label: 'Daily-driver technologies' },
+  { value: '14+', label: 'Technologies in my toolbox' },
+  { value: '3+',  label: 'Years building software' },
+  { value: '∞',   label: 'Curiosity for new tech' },
+];
+
 export const skills = [
-  { name: 'PHP', category: 'Uso Profesional Diario', level: 'daily' },
-  { name: 'Symfony', category: 'Uso Profesional Diario', level: 'daily' },
-  { name: 'JavaScript', category: 'Uso Profesional Diario', level: 'daily' },
-  { name: 'jQuery', category: 'Uso Profesional Diario', level: 'daily' },
-  { name: 'MariaDB', category: 'Uso Profesional Diario', level: 'daily' },
-  { name: 'MySQL', category: 'Uso Profesional Diario', level: 'daily' },
-  { name: 'React', category: 'Dominio con Experiencia', level: 'experienced' },
-  { name: 'Laravel', category: 'Dominio con Experiencia', level: 'experienced' },
-  { name: 'Java', category: 'Dominio con Experiencia', level: 'experienced' },
-  { name: 'Spring', category: 'Dominio con Experiencia', level: 'experienced' },
-  { name: 'Python', category: 'Dominio con Experiencia', level: 'experienced' },
-  { name: 'Node.js', category: 'Dominio con Experiencia', level: 'experienced' },
-  { name: 'PostgreSQL', category: 'Dominio con Experiencia', level: 'experienced' },
-  { name: 'MongoDB', category: 'Dominio con Experiencia', level: 'experienced' },
-  { name: 'HTML5', category: 'Frontend', level: 'experienced' },
-  { name: 'CSS3', category: 'Frontend', level: 'experienced' },
-  { name: 'Tailwind', category: 'Frontend', level: 'experienced' },
-  { name: 'Bootstrap', category: 'Frontend', level: 'experienced' },
-  { name: 'Docker', category: 'Aprendizaje Activo', level: 'learning' },
-  { name: 'Kubernetes', category: 'Aprendizaje Activo', level: 'learning' },
-  { name: 'React Native', category: 'Aprendizaje Activo', level: 'learning' },
-  { name: 'Flutter', category: 'Aprendizaje Activo', level: 'learning' },
-  { name: 'ML / IA', category: 'Aprendizaje Activo', level: 'learning' },
-  { name: 'Prog. agéntica', category: 'Aprendizaje Activo', level: 'learning' },
-  { name: 'GitHub', category: 'Herramientas', level: 'tool' },
-  { name: 'GitLab', category: 'Herramientas', level: 'tool' },
-  { name: 'ClickUp', category: 'Herramientas', level: 'tool' },
-  { name: 'Trello', category: 'Herramientas', level: 'tool' },
-  { name: 'Linux', category: 'Herramientas', level: 'tool' },
+  { name: 'PHP',            category: 'Daily Professional Use', level: 'daily' },
+  { name: 'Symfony',        category: 'Daily Professional Use', level: 'daily' },
+  { name: 'JavaScript',     category: 'Daily Professional Use', level: 'daily' },
+  { name: 'jQuery',         category: 'Daily Professional Use', level: 'daily' },
+  { name: 'MariaDB',        category: 'Daily Professional Use', level: 'daily' },
+  { name: 'MySQL',          category: 'Daily Professional Use', level: 'daily' },
+  { name: 'React',          category: 'Experienced',            level: 'experienced' },
+  { name: 'Laravel',        category: 'Experienced',            level: 'experienced' },
+  { name: 'Java',           category: 'Experienced',            level: 'experienced' },
+  { name: 'Spring',         category: 'Experienced',            level: 'experienced' },
+  { name: 'Python',         category: 'Experienced',            level: 'experienced' },
+  { name: 'Node.js',        category: 'Experienced',            level: 'experienced' },
+  { name: 'PostgreSQL',     category: 'Experienced',            level: 'experienced' },
+  { name: 'MongoDB',        category: 'Experienced',            level: 'experienced' },
+  { name: 'HTML5',          category: 'Frontend',               level: 'experienced' },
+  { name: 'CSS3',           category: 'Frontend',               level: 'experienced' },
+  { name: 'Tailwind',       category: 'Frontend',               level: 'experienced' },
+  { name: 'Bootstrap',      category: 'Frontend',               level: 'experienced' },
+  { name: 'Docker',         category: 'Actively Learning',      level: 'learning' },
+  { name: 'Kubernetes',     category: 'Actively Learning',      level: 'learning' },
+  { name: 'React Native',   category: 'Actively Learning',      level: 'learning' },
+  { name: 'Flutter',        category: 'Actively Learning',      level: 'learning' },
+  { name: 'ML / AI',        category: 'Actively Learning',      level: 'learning' },
+  { name: 'Agentic Coding', category: 'Actively Learning',      level: 'learning' },
+  { name: 'GitHub',         category: 'Tools',                  level: 'tool' },
+  { name: 'GitLab',         category: 'Tools',                  level: 'tool' },
+  { name: 'ClickUp',        category: 'Tools',                  level: 'tool' },
+  { name: 'Trello',         category: 'Tools',                  level: 'tool' },
+  { name: 'Linux',          category: 'Tools',                  level: 'tool' },
 ];
 
 export const education = [
   {
     id: 1,
     institution: 'Unidades Tecnológicas de Santander',
-    degree: 'Ingeniería de Sistemas',
+    degree: 'Systems Engineering',
     period: '2021 – 2026',
     location: 'Bucaramanga, Santander',
-    status: 'En Formación',
-    diploma: null,
+    status: 'Graduated',
   },
   {
     id: 2,
     institution: 'Unidades Tecnológicas de Santander',
-    degree: 'Tecnología en Desarrollo de Sistemas Informáticos',
+    degree: 'Technology in Software Systems Development',
     period: '2021 – 2023',
     location: 'Bucaramanga, Santander',
-    status: 'Graduado',
-    diploma: DiplomaTecnologo,
+    status: 'Graduated',
   },
   {
     id: 3,
     institution: 'SENA',
-    degree: 'Técnico en Sistemas',
+    degree: 'Systems Technician',
     period: '2017 – 2018',
     location: 'Cimitarra, Santander',
-    status: 'Graduado',
-    diploma: DiplomaTecnico,
+    status: 'Graduated',
   },
   {
     id: 4,
     institution: 'Colegio Nuestra Señora de La Candelaria',
-    degree: 'Bachiller Académico',
+    degree: 'Academic High School Diploma',
     period: '2018',
     location: 'Cimitarra, Santander',
-    status: 'Graduado',
-    diploma: DiplomaBachiller,
+    status: 'Graduated',
   },
 ];
 
 export const softSkills = [
-  { name: 'Comunicación efectiva', description: 'Transmito ideas técnicas con claridad a equipos y clientes.' },
-  { name: 'Trabajo en equipo', description: 'Colaboro activamente en entornos ágiles y multidisciplinarios.' },
-  { name: 'Resolución de problemas', description: 'Identifico cuellos de botella y propongo soluciones eficientes.' },
-  { name: 'Aprendizaje rápido', description: 'Me adapto a nuevas tecnologías y metodologías con agilidad.' },
-  { name: 'Adaptabilidad', description: 'Trabajo eficientemente en contextos cambiantes y bajo presión.' },
-  { name: 'Liderazgo', description: 'Tomo iniciativa y oriento equipos hacia resultados concretos.' },
+  { name: 'Effective Communication', icon: 'chat',   description: 'I translate technical ideas into clear language for teams and clients.' },
+  { name: 'Teamwork',                icon: 'team',   description: 'I collaborate actively in agile, multidisciplinary environments.' },
+  { name: 'Problem Solving',         icon: 'bulb',   description: 'I spot bottlenecks and design efficient, pragmatic solutions.' },
+  { name: 'Fast Learning',           icon: 'rocket', description: 'I pick up new technologies and methodologies quickly.' },
+  { name: 'Adaptability',            icon: 'flow',   description: 'I stay effective in changing contexts and under pressure.' },
+  { name: 'Leadership',              icon: 'flag',   description: 'I take initiative and steer teams toward concrete results.' },
 ];
 
 export const languages = [
-  { name: 'Español', level: 'Nativo', percent: 100 },
-  { name: 'Inglés', level: 'A2 Básico', percent: 25 },
+  { name: 'Spanish', level: 'Native',   percent: 100 },
+  { name: 'English', level: 'A2 Basic', percent: 35 },
 ];
 
-export const projects = [
+export const services = [
   {
-    id: 1,
-    title: 'Hackatón Financiera Comultrasan',
-    tools: ['React.js', 'Node.js', 'SQL', 'Git', 'Bootstrap'],
-    description:
-      'Sistema de pagos mediante códigos QR para la hackatón Softic 2023. Permite a clientes de Financiera Comultrasan generar QRs ilimitados, recibir pagos y hacer seguimiento de transacciones en tiempo real.',
-    github: 'https://github.com/blackrose99/HackatTonReto-1',
-    demo: null,
-    highlight: true,
+    icon: 'web',
+    title: 'Web Applications',
+    desc: 'Robust, secure and scalable web apps built with clean architecture.',
+    tags: ['PHP', 'Symfony', 'Laravel', 'React'],
   },
   {
-    id: 2,
-    title: 'Sistema de Gestión de Tickets para Eventos',
-    tools: ['Laravel', 'MySQL', 'Google Auth', 'PHP', 'Bootstrap'],
-    description:
-      'Gestión de tickets para ferias y eventos con inicio de sesión Google. Incluye directorio de stands, calificación por QR, seguimiento de asistencia y estadísticas por stand.',
-    github: 'https://github.com/blackrose99',
-    demo: null,
-    highlight: false,
-  },
-];
-
-export const bibliography = [
-  {
-    id: 1,
-    title: 'Clean Code',
-    author: 'Robert C. Martin',
-    type: 'book',
-    description: 'Principios y prácticas para escribir código profesional, legible y mantenible en el tiempo.',
+    icon: 'api',
+    title: 'RESTful APIs',
+    desc: 'API design and integration to connect systems, automate flows and sync data.',
+    tags: ['REST', 'JSON', 'JWT', 'Node.js'],
   },
   {
-    id: 2,
-    title: 'The Pragmatic Programmer',
-    author: 'David Thomas & Andrew Hunt',
-    type: 'book',
-    description: 'Guía para convertirse en un desarrollador más efectivo, adaptable e inteligente.',
+    icon: 'db',
+    title: 'Databases',
+    desc: 'Modeling, optimization and management of relational databases for high performance.',
+    tags: ['MySQL', 'MariaDB', 'PostgreSQL'],
   },
   {
-    id: 3,
-    title: 'Designing Data-Intensive Applications',
-    author: 'Martin Kleppmann',
-    type: 'book',
-    description: 'Fundamentos de sistemas distribuidos, bases de datos y arquitecturas de datos a escala.',
+    icon: 'ui',
+    title: 'Dynamic Interfaces',
+    desc: 'Responsive, fluid and accessible UIs that elevate the end-user experience.',
+    tags: ['React', 'JavaScript', 'Tailwind'],
   },
   {
-    id: 4,
-    title: 'Documentación Oficial de Symfony',
-    author: 'Symfony Community',
-    type: 'resource',
-    description: 'Referencia técnica principal para el framework PHP que uso en producción cada día.',
-    url: 'https://symfony.com/doc/current/index.html',
+    icon: 'advisory',
+    title: 'IT Advisory',
+    desc: 'Technical guidance to choose the right stack, untangle legacy code and ship with confidence.',
+    tags: ['Consulting', 'Architecture', 'Code Review'],
   },
   {
-    id: 5,
-    title: 'React — La Documentación Oficial',
-    author: 'Meta Open Source',
-    type: 'resource',
-    description: 'Fuente de consulta para patrones modernos de React, hooks y arquitectura de componentes.',
-    url: 'https://react.dev',
+    icon: 'perf',
+    title: 'Performance Tuning',
+    desc: 'Profiling and optimization to turn slow, heavy systems into fast, efficient ones.',
+    tags: ['Profiling', 'Caching', 'Refactoring'],
   },
 ];
 
 export const fictionStory = {
-  title: 'El Bug que Cambió Todo',
-  subtitle: 'Una historia de ficción (completamente inventada, casi)',
+  title: 'The Bug That Changed Everything',
+  subtitle: 'A (mostly) fictional origin story',
   paragraphs: [
-    'Era martes, 2019. Tenía 17 años, 500 pesos y el Wi-Fi del señor Ernesto: el único punto de conexión del pueblo, ubicado estratégicamente en la farmacia de al frente, cobrado por horas y desactivado sin previo aviso a las 7:00 p.m. en punto.',
-    'Ese día estaba a punto de subir mi primer proyecto a GitHub: un sistema de inventario para la tienda de mi mamá, escrito en PHP puro, sin framework, sin comentarios, con las contraseñas en texto plano y con un archivo llamado "versión_final_ESTA_SÍ.php". Era una obra maestra del caos.',
-    'Eran las 6:58 p.m. Empezó el upload. La barra de progreso llegó al 87%. Silencio. El cursor parpadeó tres veces como despedida. El señor Ernesto había apagado el router.',
-    'El repositorio quedó incompleto. El sistema nunca llegó a la tienda. Mi mamá siguió usando un cuaderno. El señor Ernesto no devolvió los 500 pesos.',
-    'Esa noche hice dos promesas: aprender a desarrollar software de verdad, y nunca más depender del Wi-Fi ajeno. Hoy trabajo con Symfony en producción, integro APIs RESTful, optimizo bases de datos relacionales y tengo fibra óptica en casa.',
-    'El señor Ernesto cerró la farmacia en 2022. La vida, a veces, es justa.',
+    'It was a Tuesday in 2019. I was 17, had 500 pesos to my name, and depended on Mr. Ernesto’s Wi-Fi — the town’s only connection, strategically located in the pharmacy across the street, billed by the hour and switched off without warning at 7:00 p.m. sharp.',
+    'That day I was about to push my first project to GitHub: an inventory system for my mom’s shop, written in raw PHP — no framework, no comments, passwords in plain text, and a file proudly named "final_version_THIS_ONE.php". A masterpiece of chaos.',
+    'It was 6:58 p.m. The upload began. The progress bar hit 87%. Silence. The cursor blinked three times, like a goodbye. Mr. Ernesto had pulled the plug on the router.',
+    'The repo stayed half-uploaded. The system never reached the shop. My mom kept using her paper notebook. Mr. Ernesto never gave back the 500 pesos.',
+    'That night I made two promises: to learn how to build real software, and to never again depend on someone else’s Wi-Fi. Today I ship Symfony to production, integrate RESTful APIs, tune relational databases — and I have fiber optic at home.',
+    'Mr. Ernesto closed the pharmacy in 2022. Life, sometimes, is fair.',
   ],
 };

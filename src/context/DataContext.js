@@ -6,12 +6,12 @@ const DataContext = createContext(null);
 export const DataProvider = ({ children }) => {
   const value = {
     profile: PortfolioRepository.getProfile(),
+    stats: PortfolioRepository.getStats(),
     skills: PortfolioRepository.getSkillsByLevel(),
     education: PortfolioRepository.getEducation(),
     softSkills: PortfolioRepository.getSoftSkills(),
     languages: PortfolioRepository.getLanguages(),
-    projects: PortfolioRepository.getProjects(),
-    bibliography: PortfolioRepository.getBibliography(),
+    services: PortfolioRepository.getServices(),
     fictionStory: PortfolioRepository.getFictionStory(),
     repository: PortfolioRepository,
   };
