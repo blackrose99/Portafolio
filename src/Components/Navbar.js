@@ -1,16 +1,51 @@
 import React, { useEffect, useState } from 'react';
-import { RiMenuLine, RiCloseLine } from 'react-icons/ri';
+import { RiMenuLine, RiCloseLine, RiSunLine, RiMoonLine } from 'react-icons/ri';
+import { useTheme } from '../theme/ThemeContext';
+import { useI18n } from '../i18n/I18nContext';
 
-const LINKS = [
-  { id: 'about',     label: 'About' },
-  { id: 'story',     label: 'Story' },
-  { id: 'education', label: 'Education' },
-  { id: 'skills',    label: 'Skills' },
-  { id: 'services',  label: 'Services' },
-  { id: 'contact',   label: 'Contact' },
-];
+const LINK_IDS = ['about', 'story', 'education', 'skills', 'services', 'contact'];
+
+/* Theme toggle — sun ⇄ moon, accessible & label-aware. */
+function ThemeToggle({ t }) {
+  const { isDark, toggle } = useTheme();
+  return (
+    <button
+      type="button"
+      className="ctl ctl--toggle"
+      onClick={toggle}
+      aria-label={isDark ? t.a11y.themeToLight : t.a11y.themeToDark}
+      title={isDark ? t.a11y.themeToLight : t.a11y.themeToDark}
+    >
+      <span className="ctl__thumb" aria-hidden="true">
+        {isDark ? <RiMoonLine /> : <RiSunLine />}
+      </span>
+    </button>
+  );
+}
+
+/* Language selector — segmented EN / ES / PT. */
+function LangSwitch({ t }) {
+  const { lang, setLang, langs } = useI18n();
+  return (
+    <div className="ctl ctl--lang" role="group" aria-label={t.a11y.language}>
+      {langs.map((l) => (
+        <button
+          key={l.code}
+          type="button"
+          className={`ctl__lang${lang === l.code ? ' is-active' : ''}`}
+          onClick={() => setLang(l.code)}
+          aria-pressed={lang === l.code}
+          aria-label={l.name}
+        >
+          {l.label}
+        </button>
+      ))}
+    </div>
+  );
+}
 
 function Navbar() {
+  const { t } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState('about');
@@ -25,8 +60,8 @@ function Navbar() {
 
   // Highlight the link of the section currently in view.
   useEffect(() => {
-    const sections = LINKS
-      .map((l) => document.getElementById(l.id))
+    const sections = LINK_IDS
+      .map((id) => document.getElementById(id))
       .filter(Boolean);
     if (!sections.length) return undefined;
 
@@ -58,24 +93,28 @@ function Navbar() {
           Luis Castaño
         </a>
 
-        <nav className="nav__links" aria-label="Section navigation">
-          {LINKS.map((l) => (
+        <nav className="nav__links" aria-label={t.a11y.sectionNav}>
+          {LINK_IDS.map((id) => (
             <a
-              key={l.id}
-              href={`#${l.id}`}
-              className={`nav__link${active === l.id ? ' is-active' : ''}`}
+              key={id}
+              href={`#${id}`}
+              className={`nav__link${active === id ? ' is-active' : ''}`}
             >
-              {l.label}
+              {t.nav[id]}
             </a>
           ))}
         </nav>
 
-        <a href="#contact" className="btn btn--primary nav__cta">Let’s talk</a>
+        <div className="nav__controls">
+          <LangSwitch t={t} />
+          <ThemeToggle t={t} />
+          <a href="#contact" className="btn btn--primary nav__cta">{t.nav.talk}</a>
+        </div>
 
         <button
           className="nav__burger"
           onClick={() => setOpen((v) => !v)}
-          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-label={open ? t.a11y.closeMenu : t.a11y.openMenu}
           aria-expanded={open}
         >
           {open ? <RiCloseLine size={24} /> : <RiMenuLine size={24} />}
@@ -84,18 +123,22 @@ function Navbar() {
 
       {/* Mobile overlay menu */}
       <div className={`nav__mobile${open ? ' is-open' : ''}`}>
-        {LINKS.map((l) => (
+        {LINK_IDS.map((id) => (
           <a
-            key={l.id}
-            href={`#${l.id}`}
-            className={`nav__mobile-link${active === l.id ? ' is-active' : ''}`}
+            key={id}
+            href={`#${id}`}
+            className={`nav__mobile-link${active === id ? ' is-active' : ''}`}
             onClick={go}
           >
-            {l.label}
+            {t.nav[id]}
           </a>
         ))}
+        <div className="nav__mobile-controls">
+          <LangSwitch t={t} />
+          <ThemeToggle t={t} />
+        </div>
         <a href="#contact" className="btn btn--primary nav__mobile-cta" onClick={go}>
-          Let’s talk
+          {t.nav.talk}
         </a>
       </div>
     </header>

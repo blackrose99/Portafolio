@@ -1,14 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { animate, stagger, utils } from 'animejs';
 import {
   RiArrowRightLine,
   RiMapPinLine,
   RiGithubLine,
   RiLinkedinLine,
-  RiWhatsappLine,
   RiMailLine,
   RiTelegramLine,
-  RiInstagramLine,
   RiChat3Line,
   RiTeamLine,
   RiLightbulbLine,
@@ -21,10 +19,15 @@ import {
   RiLayoutMasonryLine,
   RiCustomerService2Line,
   RiSpeedUpLine,
+  RiSmartphoneLine,
+  RiRouterLine,
+  RiShieldKeyholeLine,
   RiGraduationCapLine,
 } from 'react-icons/ri';
 import { useData } from '../context/DataContext';
+import { useI18n } from '../i18n/I18nContext';
 import { useReveal, useInView } from '../hooks/useReveal';
+import { useDynamicFavicon } from '../hooks/useDynamicFavicon';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import imgUts from './img/about/uts.png';
@@ -32,26 +35,20 @@ import imgSena from './img/about/sena.png';
 import imgCandelaria from './img/about/colegioNuestraseñoradelacandelaria.png';
 import './Home.css';
 
-/* ── icon maps ─────────────────────────────────────── */
+/* ── icon maps (language-agnostic) ─────────────────── */
 const SOFT_ICONS = {
   chat: RiChat3Line, team: RiTeamLine, bulb: RiLightbulbLine,
   rocket: RiRocketLine, flow: RiShuffleLine, flag: RiFlag2Line,
 };
 const SERVICE_ICONS = {
-  web: RiGlobalLine, api: RiPlugLine, db: RiDatabase2Line,
+  web: RiGlobalLine, mobile: RiSmartphoneLine, api: RiPlugLine, db: RiDatabase2Line,
   ui: RiLayoutMasonryLine, advisory: RiCustomerService2Line, perf: RiSpeedUpLine,
 };
-const EDU_LOGOS = {
-  'Unidades Tecnológicas de Santander': imgUts,
-  'SENA': imgSena,
-  'Colegio Nuestra Señora de La Candelaria': imgCandelaria,
-};
-const SKILL_GROUPS = [
-  { key: 'daily',       label: 'Daily Professional Use' },
-  { key: 'experienced', label: 'Experienced' },
-  { key: 'learning',    label: 'Actively Learning' },
-  { key: 'tool',        label: 'Tools' },
-];
+const EDU_LOGOS = { uts: imgUts, sena: imgSena, candelaria: imgCandelaria };
+const CERT_ICONS = { network: RiRouterLine, security: RiShieldKeyholeLine };
+
+const SKILL_GROUPS = ['daily', 'experienced', 'learning', 'tool'];
+const SECTION_IDS = ['top', 'about', 'story', 'education', 'skills', 'services', 'contact'];
 
 const reduced = () =>
   typeof window !== 'undefined' &&
@@ -70,15 +67,16 @@ function SectionHeader({ kicker, title, sub }) {
   );
 }
 
-/* ── animated tagline (typewriter) ────────────────── */
+/* ── animated tagline (typewriter) — restarts on language change ── */
 function Typewriter({ text, speed = 38 }) {
   const [out, setOut] = useState(reduced() ? text : '');
   useEffect(() => {
-    if (reduced()) return undefined;
+    if (reduced()) { setOut(text); return undefined; }
+    setOut('');
     let i = 0;
     const t = setInterval(() => {
-      setOut(text.slice(0, i + 1));
       i += 1;
+      setOut(text.slice(0, i));
       if (i >= text.length) clearInterval(t);
     }, speed);
     return () => clearInterval(t);
@@ -91,18 +89,18 @@ function Typewriter({ text, speed = 38 }) {
 /* ════════════════════════════════════════════════════
    HERO
    ════════════════════════════════════════════════════ */
-function Hero({ profile, stats }) {
+function Hero({ profile, stats, t }) {
   const heroRef = useRef(null);
 
   useEffect(() => {
     const el = heroRef.current;
     if (!el || reduced()) return;
     const items = el.querySelectorAll('[data-hero]');
-    utils.set(items, { opacity: 0, translateY: 26 });
+    utils.set(items, { opacity: 0, translateY: 28 });
     animate(items, {
       opacity: 1,
       translateY: 0,
-      duration: 850,
+      duration: 900,
       delay: stagger(95, { start: 120 }),
       ease: 'outExpo',
     });
@@ -117,52 +115,49 @@ function Hero({ profile, stats }) {
       <div className="container hero__inner">
         <div className="hero__text">
           <span className="hero__eyebrow" data-hero>
-            <span className="hero__eyebrow-dot" /> {profile.eyebrow}
+            <span className="hero__eyebrow-dot" /> {t.hero.eyebrow}
           </span>
           <h1 className="hero__title" data-hero>
-            Luis Manuel
-            <span className="hero__title-accent"> Castaño Grueso</span>
+            {profile.firstName}
+            <span className="hero__title-accent"> {profile.lastName}</span>
           </h1>
           <p className="hero__tagline" data-hero>
-            <Typewriter text={profile.tagline} />
+            <Typewriter text={t.hero.tagline} />
           </p>
           <p className="hero__meta" data-hero>
             <RiMapPinLine /> {profile.location}
           </p>
           <div className="hero__actions" data-hero>
             <a href="#contact" className="btn btn--primary">
-              Let’s talk <RiArrowRightLine />
+              {t.hero.talk} <RiArrowRightLine />
             </a>
-            <a href="#about" className="btn btn--outline">Discover more</a>
+            <a href="#about" className="btn btn--outline">{t.hero.discover}</a>
           </div>
           <div className="hero__socials" data-hero>
             <a href={profile.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub"><RiGithubLine /></a>
             <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><RiLinkedinLine /></a>
-            <a href={profile.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><RiWhatsappLine /></a>
+            <a href={profile.telegram} target="_blank" rel="noopener noreferrer" aria-label="Telegram"><RiTelegramLine /></a>
             <a href={`mailto:${profile.email}`} aria-label="Email"><RiMailLine /></a>
           </div>
         </div>
 
         <div className="hero__visual">
           <div className="glass hero__now" data-hero>
-            <span className="hero__now-status"><span className="pulse" /> Available for projects</span>
-            <p className="hero__now-text">
-              Currently shipping <strong>Symfony</strong> to production and crafting
-              dynamic interfaces with <strong>React</strong>.
-            </p>
+            <span className="hero__now-status"><span className="pulse" /> {t.hero.available}</span>
+            <p className="hero__now-text">{t.hero.now}</p>
           </div>
           <div className="glass hero__stats" data-hero>
-            {stats.map((s) => (
-              <div className="hero__stat" key={s.label}>
+            {stats.map((s, i) => (
+              <div className="hero__stat" key={s.value + i}>
                 <span className="hero__stat-value">{s.value}</span>
-                <span className="hero__stat-label">{s.label}</span>
+                <span className="hero__stat-label">{t.hero.stats[i]}</span>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      <a href="#about" className="hero__scroll" aria-label="Scroll down">
+      <a href="#about" className="hero__scroll" aria-label={t.a11y.scroll}>
         <span />
       </a>
     </section>
@@ -172,24 +167,24 @@ function Hero({ profile, stats }) {
 /* ════════════════════════════════════════════════════
    ABOUT
    ════════════════════════════════════════════════════ */
-function About({ profile }) {
+function About({ t }) {
   const ref = useReveal({ y: 30, staggerMs: 110 });
   return (
     <section className="section" id="about">
       <div className="container about">
-        <SectionHeader kicker="Who I am" title="A developer who turns problems into performance" />
+        <SectionHeader kicker={t.about.kicker} title={t.about.title} />
         <div className="about__grid" ref={ref}>
-          <p className="about__lead" data-reveal-child>{profile.bio}</p>
+          <p className="about__lead" data-reveal-child>{t.about.lead}</p>
           <div className="about__cards">
             <div className="glass about__card" data-reveal-child>
               <RiSpeedUpLine className="about__card-icon" />
-              <h3>Performance-minded</h3>
-              <p>I hunt bottlenecks and refactor heavy systems into fast, efficient ones.</p>
+              <h3>{t.about.cards[0].title}</h3>
+              <p>{t.about.cards[0].text}</p>
             </div>
             <div className="glass about__card" data-reveal-child>
               <RiLightbulbLine className="about__card-icon" />
-              <h3>Clean code believer</h3>
-              <p>Readable, maintainable software that keeps paying off over time.</p>
+              <h3>{t.about.cards[1].title}</h3>
+              <p>{t.about.cards[1].text}</p>
             </div>
           </div>
         </div>
@@ -201,14 +196,14 @@ function About({ profile }) {
 /* ════════════════════════════════════════════════════
    STORY  (fiction, fun)
    ════════════════════════════════════════════════════ */
-function Story({ story }) {
+function Story({ t }) {
   const ref = useReveal({ y: 28, staggerMs: 120 });
   return (
     <section className="section section--alt" id="story">
       <div className="container">
-        <SectionHeader kicker={story.subtitle} title={story.title} />
+        <SectionHeader kicker={t.story.kicker} title={t.story.title} />
         <div className="story" ref={ref}>
-          {story.paragraphs.map((p, i) => (
+          {t.story.paragraphs.map((p, i) => (
             <div className="story__item" data-reveal-child key={i}>
               <div className="story__marker"><span>{i + 1}</span></div>
               <p className="story__text">{p}</p>
@@ -221,34 +216,37 @@ function Story({ story }) {
 }
 
 /* ════════════════════════════════════════════════════
-   EDUCATION
+   EDUCATION  (degrees + certifications)
    ════════════════════════════════════════════════════ */
-function Education({ education }) {
+function Education({ education, t }) {
   const ref = useReveal({ y: 30, staggerMs: 90 });
   return (
     <section className="section" id="education">
       <div className="container">
-        <SectionHeader
-          kicker="Academic background"
-          title="Education"
-          sub="A path built with persistence — from Cimitarra to Bucaramanga."
-        />
+        <SectionHeader kicker={t.education.kicker} title={t.education.title} sub={t.education.sub} />
         <div className="edu" ref={ref}>
-          {education.map((e) => (
-            <div className="glass edu__card" data-reveal-child key={e.id}>
-              <div className="edu__logo">
-                <img src={EDU_LOGOS[e.institution] || imgUts} alt={e.institution} />
+          {education.map((e) => {
+            const copy = t.education.items[e.id] || {};
+            const isCert = e.kind === 'cert';
+            const CertIcon = isCert ? (CERT_ICONS[e.icon] || RiShieldKeyholeLine) : null;
+            return (
+              <div className="glass edu__card" data-reveal-child key={e.id}>
+                <div className={`edu__logo${isCert ? ' edu__logo--cert' : ''}`}>
+                  {isCert
+                    ? <CertIcon aria-hidden="true" />
+                    : <img src={EDU_LOGOS[e.logo] || imgUts} alt={copy.institution} loading="lazy" />}
+                </div>
+                <div className="edu__body">
+                  <span className={`edu__status${isCert ? ' edu__status--cert' : ''}`}>
+                    {copy.status}
+                  </span>
+                  <h3 className="edu__degree">{copy.degree}</h3>
+                  <p className="edu__inst"><RiGraduationCapLine /> {copy.institution}</p>
+                  <p className="edu__meta">{e.period} · {e.place}</p>
+                </div>
               </div>
-              <div className="edu__body">
-                <span className={`edu__status${e.status === 'In Progress' ? ' edu__status--active' : ''}`}>
-                  {e.status}
-                </span>
-                <h3 className="edu__degree">{e.degree}</h3>
-                <p className="edu__inst"><RiGraduationCapLine /> {e.institution}</p>
-                <p className="edu__meta">{e.period} · {e.location}</p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
@@ -258,16 +256,16 @@ function Education({ education }) {
 /* ════════════════════════════════════════════════════
    SKILLS  (tech stack + soft skills + languages)
    ════════════════════════════════════════════════════ */
-function TechStack({ skills }) {
+function TechStack({ skills, t }) {
   const ref = useReveal({ y: 20, staggerMs: 26 });
   return (
     <div className="stack" ref={ref}>
-      {SKILL_GROUPS.map(({ key, label }) => {
+      {SKILL_GROUPS.map((key) => {
         const group = skills.filter((s) => s.level === key);
         if (!group.length) return null;
         return (
           <div className="stack__group" key={key}>
-            <h3 className="stack__label" data-reveal-child>{label}</h3>
+            <h3 className="stack__label" data-reveal-child>{t.skills.groups[key]}</h3>
             <div className="stack__chips">
               {group.map((s) => (
                 <span className={`chip chip--${key}`} data-reveal-child key={s.name}>{s.name}</span>
@@ -280,18 +278,19 @@ function TechStack({ skills }) {
   );
 }
 
-function SoftSkills({ softSkills }) {
+function SoftSkills({ softSkills, t }) {
   const ref = useReveal({ y: 28, staggerMs: 80 });
   return (
     <div className="soft" ref={ref}>
-      {softSkills.map((s) => {
+      {softSkills.map((s, i) => {
         const Icon = SOFT_ICONS[s.icon] || RiLightbulbLine;
+        const copy = t.skills.soft[i] || {};
         return (
-          <div className="glass soft__card" data-reveal-child key={s.name}>
+          <div className="glass soft__card" data-reveal-child key={s.icon}>
             <span className="soft__icon"><Icon /></span>
             <div>
-              <h4>{s.name}</h4>
-              <p>{s.description}</p>
+              <h4>{copy.name}</h4>
+              <p>{copy.description}</p>
             </div>
           </div>
         );
@@ -300,51 +299,50 @@ function SoftSkills({ softSkills }) {
   );
 }
 
-function Languages({ languages }) {
+function Languages({ languages, t }) {
   const ref = useInView((el) => {
     const fills = el.querySelectorAll('[data-bar]');
-    fills.forEach((f) => {
+    fills.forEach((f, i) => {
       const target = `${f.dataset.bar}%`;
       if (reduced()) { f.style.width = target; return; }
-      animate(f, { width: ['0%', target], duration: 1150, ease: 'outExpo', delay: 150 });
+      animate(f, { width: ['0%', target], duration: 1200, ease: 'outExpo', delay: 180 + i * 120 });
     });
   });
   return (
     <div className="langs" ref={ref}>
-      {languages.map((l) => (
-        <div className="langs__item" key={l.name}>
-          <div className="langs__head">
-            <span className="langs__name">{l.name}</span>
-            <span className="langs__level">{l.level}</span>
+      {languages.map((l, i) => {
+        const copy = t.skills.langs[i] || {};
+        return (
+          <div className="langs__item" key={copy.name || i}>
+            <div className="langs__head">
+              <span className="langs__name">{copy.name}</span>
+              <span className="langs__level">{copy.level}</span>
+            </div>
+            <div className="langs__track">
+              <span className="langs__fill" data-bar={l.percent} style={{ width: 0 }} />
+            </div>
           </div>
-          <div className="langs__track">
-            <span className="langs__fill" data-bar={l.percent} style={{ width: 0 }} />
-          </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
 
-function Skills({ skills, softSkills, languages }) {
+function Skills({ skills, softSkills, languages, t }) {
   return (
     <section className="section section--alt" id="skills">
       <div className="container">
-        <SectionHeader
-          kicker="What I work with"
-          title="Skills & Strengths"
-          sub="The technologies I use, the way I work, and the languages I speak."
-        />
-        <TechStack skills={skills} />
+        <SectionHeader kicker={t.skills.kicker} title={t.skills.title} sub={t.skills.sub} />
+        <TechStack skills={skills} t={t} />
 
         <div className="skills__split">
           <div className="skills__col">
-            <h3 className="skills__subtitle">Soft skills</h3>
-            <SoftSkills softSkills={softSkills} />
+            <h3 className="skills__subtitle">{t.skills.softTitle}</h3>
+            <SoftSkills softSkills={softSkills} t={t} />
           </div>
           <div className="skills__col">
-            <h3 className="skills__subtitle">Languages</h3>
-            <Languages languages={languages} />
+            <h3 className="skills__subtitle">{t.skills.langsTitle}</h3>
+            <Languages languages={languages} t={t} />
           </div>
         </div>
       </div>
@@ -355,26 +353,23 @@ function Skills({ skills, softSkills, languages }) {
 /* ════════════════════════════════════════════════════
    SERVICES
    ════════════════════════════════════════════════════ */
-function Services({ services }) {
+function Services({ services, t }) {
   const ref = useReveal({ y: 32, staggerMs: 80 });
   return (
     <section className="section" id="services">
       <div className="container">
-        <SectionHeader
-          kicker="How I can help"
-          title="Services & IT advisory"
-          sub="Focused on quality, performance and real impact."
-        />
+        <SectionHeader kicker={t.services.kicker} title={t.services.title} sub={t.services.sub} />
         <div className="services" ref={ref}>
-          {services.map((s) => {
+          {services.map((s, i) => {
             const Icon = SERVICE_ICONS[s.icon] || RiGlobalLine;
+            const copy = t.services.items[i] || {};
             return (
-              <div className="glass service" data-reveal-child key={s.title}>
+              <div className="glass service" data-reveal-child key={s.icon}>
                 <span className="service__icon"><Icon /></span>
-                <h3 className="service__title">{s.title}</h3>
-                <p className="service__desc">{s.desc}</p>
+                <h3 className="service__title">{copy.title}</h3>
+                <p className="service__desc">{copy.desc}</p>
                 <div className="service__tags">
-                  {s.tags.map((t) => <span className="tag" key={t}>{t}</span>)}
+                  {s.tags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}
                 </div>
               </div>
             );
@@ -388,28 +383,24 @@ function Services({ services }) {
 /* ════════════════════════════════════════════════════
    CONTACT  (icons / channels only — no sensitive text)
    ════════════════════════════════════════════════════ */
-function Contact({ profile }) {
+function Contact({ profile, t }) {
   const ref = useReveal({ y: 30, staggerMs: 90 });
   const channels = [
-    { href: profile.whatsapp,                 Icon: RiWhatsappLine,  label: 'WhatsApp' },
-    { href: `mailto:${profile.email}`,        Icon: RiMailLine,      label: 'Email' },
-    { href: profile.linkedin,                 Icon: RiLinkedinLine,  label: 'LinkedIn' },
-    { href: profile.github,                   Icon: RiGithubLine,    label: 'GitHub' },
-    { href: profile.telegram,                 Icon: RiTelegramLine,  label: 'Telegram' },
-    { href: profile.instagram,                Icon: RiInstagramLine, label: 'Instagram' },
+    { href: `mailto:${profile.email}`, Icon: RiMailLine,     label: t.contact.channels.email },
+    { href: profile.linkedin,          Icon: RiLinkedinLine, label: t.contact.channels.linkedin },
+    { href: profile.github,            Icon: RiGithubLine,   label: t.contact.channels.github },
+    { href: profile.telegram,          Icon: RiTelegramLine, label: t.contact.channels.telegram },
   ];
   return (
     <section className="section section--alt" id="contact">
       <div className="container">
         <div className="cta glass" ref={ref}>
           <div className="cta__glow" aria-hidden="true" />
-          <span className="cta__kicker" data-reveal-child>Let’s build something</span>
+          <span className="cta__kicker" data-reveal-child>{t.contact.kicker}</span>
           <h2 className="cta__title" data-reveal-child>
-            Have a project in mind? <br /> Let’s make it real.
+            {t.contact.title} <br /> {t.contact.titleSub}
           </h2>
-          <p className="cta__sub" data-reveal-child>
-            Reach out through any channel — I usually reply fast.
-          </p>
+          <p className="cta__sub" data-reveal-child>{t.contact.sub}</p>
           <div className="cta__channels" data-reveal-child>
             {channels.map(({ href, Icon, label }) => (
               <a
@@ -435,19 +426,22 @@ function Contact({ profile }) {
    PAGE
    ════════════════════════════════════════════════════ */
 function Home() {
-  const { profile, stats, skills, education, softSkills, languages, services, fictionStory } = useData();
+  const { profile, stats, skills, education, softSkills, languages, services } = useData();
+  const { t } = useI18n();
+  const sectionIds = useMemo(() => SECTION_IDS, []);
+  useDynamicFavicon(sectionIds);
 
   return (
     <div className="landing">
       <Navbar />
       <main>
-        <Hero profile={profile} stats={stats} />
-        <About profile={profile} />
-        <Story story={fictionStory} />
-        <Education education={education} />
-        <Skills skills={skills} softSkills={softSkills} languages={languages} />
-        <Services services={services} />
-        <Contact profile={profile} />
+        <Hero profile={profile} stats={stats} t={t} />
+        <About t={t} />
+        <Story t={t} />
+        <Education education={education} t={t} />
+        <Skills skills={skills} softSkills={softSkills} languages={languages} t={t} />
+        <Services services={services} t={t} />
+        <Contact profile={profile} t={t} />
       </main>
       <Footer />
     </div>

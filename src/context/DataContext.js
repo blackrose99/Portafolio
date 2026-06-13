@@ -12,7 +12,6 @@ export const DataProvider = ({ children }) => {
     softSkills: PortfolioRepository.getSoftSkills(),
     languages: PortfolioRepository.getLanguages(),
     services: PortfolioRepository.getServices(),
-    fictionStory: PortfolioRepository.getFictionStory(),
     repository: PortfolioRepository,
   };
 

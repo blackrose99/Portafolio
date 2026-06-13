@@ -6,7 +6,6 @@ import {
   softSkills,
   languages,
   services,
-  fictionStory,
 } from '../data/portfolioData';
 
 const PortfolioRepository = {
@@ -31,8 +30,6 @@ const PortfolioRepository = {
   getLanguages: () => languages,
 
   getServices: () => services,
-
-  getFictionStory: () => fictionStory,
 };
 
 export default PortfolioRepository;
